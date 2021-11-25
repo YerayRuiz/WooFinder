@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "567241402224",
+    "project_id": "woofindercr7",
+    "storage_bucket": "woofindercr7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567241402224:android:08e8914393f420faddd1b5",
+        "android_client_info": {
+          "package_name": "com.example.woofinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567241402224-u696b3rn7lasebj42ce91dvd6f4mvd8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL9-iWasc4lm765sNMD4etPs2KAhTXdtU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567241402224-u696b3rn7lasebj42ce91dvd6f4mvd8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

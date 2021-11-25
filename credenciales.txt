@@ -1,3 +1,8 @@
 --GMAIL--
 Usuario: woofinder.oficial@gmail.com
 Contraseña: Buscachuchos
+
+
+--GUIA FIREBASE--
+https://firebase.google.com/docs/guides?authuser=3
+https://firebase.google.com/docs/auth/android/custom-auth?hl=es
