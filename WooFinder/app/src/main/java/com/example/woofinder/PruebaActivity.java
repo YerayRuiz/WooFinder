@@ -21,16 +21,26 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import com.example.woofinder.clases.SingletonDataBase;
+
 public class PruebaActivity extends AppCompatActivity {
+    // Creamos la database al inicializar la main activity y se lo añadimos al mapa singleton con la SHARED_KEY en onCreate.
+
+    private static final  FirebaseFirestore db= FirebaseFirestore.getInstance();
+    public static final String SHARED_DATA_KEY= "SHARED_DATABASE_KEY";
+
 
     private TextView nombreTextView;
     private TextView correoTextView;
-    private FirebaseFirestore db;
     private CollectionReference crf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prueba);
+        // Al inicializar la primera actividad, hay que crear la instancia de la base de datos.
+        SingletonDataBase.getInstance().put(SHARED_DATA_KEY, db);
+
+
         enlazarControles();
     /*
         db.collection("Usuario").document("M1t0L1c1TOdRuaMngINs").get().addOnCompleteListener
@@ -68,8 +78,8 @@ public class PruebaActivity extends AppCompatActivity {
     }
 
     private void enlazarControles() {
-        this.db = FirebaseFirestore.getInstance();
         this.nombreTextView = findViewById(R.id.nombreTextView);
         this.correoTextView = findViewById(R.id.correoTextView);
     }
+
 }
