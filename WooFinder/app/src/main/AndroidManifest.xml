@@ -11,9 +11,7 @@
         android:theme="@style/Theme.WooFinder">
         <activity
             android:name=".SolicitudActivity"
-            android:exported="false"
-            android:label="@string/title_activity_solicitud"
-            android:theme="@style/Theme.WooFinder.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".PruebaActivity"
             android:exported="true">

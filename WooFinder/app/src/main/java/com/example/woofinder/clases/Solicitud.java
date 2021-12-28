@@ -1,6 +1,9 @@
 package com.example.woofinder.clases;
 
+import androidx.annotation.NonNull;
+
 import com.example.woofinder.PruebaActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -39,9 +42,15 @@ public class Solicitud {
 
     // Esto hay que arreglarlo
     private DocumentSnapshot findDocByCorreoUsuario(){
-        Task<QuerySnapshot> q = solicitudCollection.whereEqualTo("correoUsuario", "joseluischulo@gmail.com").get();
-        // Se va a buscar por clave única, solo habrá una solicitud
-        doc=q.getResult().getDocuments().get(0);
+        System.out.println(solicitud);
+        Task<QuerySnapshot> q = solicitudCollection.whereEqualTo("correoUsuario", this.solicitud.get("correoUsuario")).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful() && !task.getResult().getDocuments().isEmpty()){
+                    doc=task.getResult().getDocuments().get(0);
+                }
+            }
+        });
         return doc;
     }
 
