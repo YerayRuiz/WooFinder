@@ -27,8 +27,13 @@ public class Animal {
     public void addAnimal(){
         animalCollection.document("prueba").set(this.animal);
     }
-    
+
     public Map<String, Object> getAnimal() {
         return animal;
+    }
+
+    public void deleteAnimal(){
+        //find();
+        if(doc != null) doc.getReference().delete();
     }
 }
