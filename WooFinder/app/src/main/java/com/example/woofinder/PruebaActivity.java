@@ -3,9 +3,11 @@ package com.example.woofinder;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -30,9 +32,16 @@ public class PruebaActivity extends AppCompatActivity {
     public static final String SHARED_DATA_KEY= "SHARED_DATABASE_KEY";
 
 
+
     private TextView nombreTextView;
     private TextView correoTextView;
     private CollectionReference crf;
+
+    private Button buttonUsuarios;
+    private Button buttonSolicitudes;
+    private Button buttonAnimales;
+    private Button buttonOrganizaciones;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,9 +86,44 @@ public class PruebaActivity extends AppCompatActivity {
         this.correoTextView.setText((String) documentSnapshot.get("correo"));
     }
 
+
+     ///TODO: QUE CADA UNO ENLACE CON SU ACTIVITY
     private void enlazarControles() {
         this.nombreTextView = findViewById(R.id.nombreTextView);
         this.correoTextView = findViewById(R.id.correoTextView);
+
+        this.buttonSolicitudes=findViewById(R.id.buttonSolicitud);
+        this.buttonSolicitudes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),SolicitudActivity.class);
+                startActivity(i);
+            }
+        });
+
+        this.buttonUsuarios=findViewById(R.id.buttonUsuario);
+        this.buttonUsuarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        this.buttonAnimales =findViewById(R.id.buttonAnimal);
+        this.buttonAnimales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        this.buttonOrganizaciones = findViewById(R.id.buttonOrganizacion);
+        this.buttonOrganizaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
 }
