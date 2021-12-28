@@ -42,7 +42,6 @@ public class Solicitud {
 
     // Esto hay que arreglarlo
     private DocumentSnapshot findDocByCorreoUsuario(){
-        System.out.println(solicitud);
         Task<QuerySnapshot> q = solicitudCollection.whereEqualTo("correoUsuario", this.solicitud.get("correoUsuario")).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {

@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WooFinder">
         <activity
+            android:name=".AnimalActivity"
+            android:exported="false"
+            android:label="@string/title_activity_animal"
+            android:theme="@style/Theme.WooFinder.NoActionBar" />
+        <activity
             android:name=".SolicitudActivity"
             android:exported="false" />
         <activity
