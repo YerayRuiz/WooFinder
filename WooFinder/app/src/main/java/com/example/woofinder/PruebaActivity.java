@@ -105,7 +105,8 @@ public class PruebaActivity extends AppCompatActivity {
         this.buttonUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getApplicationContext(),UsuarioActivity.class);
+                startActivity(i);
             }
         });
 
