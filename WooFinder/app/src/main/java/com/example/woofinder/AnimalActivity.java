@@ -2,6 +2,7 @@ package com.example.woofinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,9 @@ public class AnimalActivity extends AppCompatActivity {
         this.btnAddAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                animal.addAnimal();
+                //nimal.addAnimal();
+                Intent i = new Intent(getApplicationContext(),AddAnimalActivity.class);
+                startActivity(i);
             }
         });
 

@@ -30,7 +30,7 @@ public class Animal {
 
     // Esto hace el update y el add
     public void addAnimal(){
-        animalCollection.document("prueba").set(this.animal);
+        animalCollection.document().set(this.animal);
     }
 
     public Map<String, Object> getAnimal() {
