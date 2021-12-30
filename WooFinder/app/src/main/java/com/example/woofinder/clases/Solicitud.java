@@ -31,7 +31,7 @@ public class Solicitud {
         solicitudCollection.document("prueba").set(this.solicitud);
     }
     public void deleteSolicitud(){
-        findDocByCorreoUsuario();
+        doc = findDocByCorreoUsuario();
         if(doc != null) doc.getReference().delete();
     }
 
@@ -39,8 +39,6 @@ public class Solicitud {
         return solicitud;
     }
 
-
-    // Esto hay que arreglarlo
     private DocumentSnapshot findDocByCorreoUsuario(){
         Task<QuerySnapshot> q = solicitudCollection.whereEqualTo("correoUsuario", this.solicitud.get("correoUsuario")).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

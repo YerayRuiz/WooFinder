@@ -30,6 +30,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".UsuarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".AnimalActivity"
             android:exported="false"
             android:label="@string/title_activity_animal"
