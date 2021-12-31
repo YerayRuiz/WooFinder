@@ -1,26 +1,66 @@
 package com.example.woofinder.fragments;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.woofinder.AddAnimalActivity;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 public class MapsFragment extends Fragment {
 
+    private ActivityResultLauncher<String> mPermissionResult = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            new ActivityResultCallback<Boolean>() {
+                @Override
+                public void onActivityResult(Boolean result) {
+                    if(result) {
+                        System.out.println("onActivityResult: PERMISSION GRANTED");
+                    } else {
+                        System.out.println("onActivityResult: PERMISSION DENIED");
+                    }
+                }
+            });
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
-    private LatLng pnt;
+        private LatLng pnt;
+        private FusedLocationProviderClient client;
+
+
+
+
+        // Launch the permission window -- this is in onCreateView()
+
         /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
@@ -31,17 +71,61 @@ public class MapsFragment extends Fragment {
          * user has installed Google Play services and returned to the app.
          */
 
-    public LatLng getpnt(){
-        return this.pnt;
-    }
+        public LatLng getpnt() {
+            return this.pnt;
+        }
+
+
+
 
         @Override
         public void onMapReady(GoogleMap googleMap) {
 
-            // Esto habría que cambiarlo para que se centre en la ubicación actual del usuario
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+            this.client = LocationServices.getFusedLocationProviderClient(getActivity());
+            System.out.println("Entra aqui");
+            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                System.out.println("Entra en if");
+                return;
+            }
+            else{
+            }
+            client.getLastLocation()
+                    .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            // Got last known location. In some rare situations this can be null.
+                            if (location != null) {
+                                // Logic to handle location object
+
+                            }
+                            System.out.println("La loc es:" + location);
+                            pnt=new LatLng(location.getLatitude(),location.getLongitude());
+
+                            System.out.println("EL pnt es "+pnt);
+                            CameraPosition camPos = new CameraPosition.Builder()
+                                    .target(new LatLng(location.getLatitude(), location.getLongitude()))
+                                    .zoom(18)
+                                    .bearing(location.getBearing())
+                                    .tilt(70)
+                                    .build();
+                            CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
+                            googleMap.animateCamera(camUpd3);
+                        }
+                    });
+            // Esto de aquí no se ejecuta
+            System.out.println("EL pnt2 es "+pnt);
+
 
             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
@@ -63,6 +147,10 @@ public class MapsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        this.mPermissionResult.launch(Manifest.permission.ACCESS_COARSE_LOCATION);
+        this.mPermissionResult.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+
+
         return inflater.inflate(com.example.woofinder.R.layout.fragment_maps, container, false);
     }
 
