@@ -3,14 +3,16 @@ package com.example.woofinder.clases;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class SingletonDataBase {
-    private static FirebaseFirestore db= FirebaseFirestore.getInstance();
-    private static CollectionReference usuarioCollection= db.collection("Usuario");
-    private static CollectionReference animalCollection= db.collection("Animal");
-    private static CollectionReference organizacionCollection= db.collection("Organizacion");
-    private static CollectionReference solicitudCollection= db.collection("Solicitud");
+import java.util.HashMap;
 
+public class SingletonDataBase extends HashMap<String,FirebaseFirestore> {
 
+    private static class SingletonHolder{
+        private static final SingletonDataBase ourInstance = new SingletonDataBase();
+    }
+    public static SingletonDataBase getInstance() {
+        return SingletonHolder.ourInstance;
+    }
 
-
+    private SingletonDataBase(){}
 }
