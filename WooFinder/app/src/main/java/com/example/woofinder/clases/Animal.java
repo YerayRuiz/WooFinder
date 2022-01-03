@@ -1,5 +1,7 @@
 package com.example.woofinder.clases;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.woofinder.PruebaActivity;
@@ -12,7 +14,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Animal {
@@ -52,5 +56,22 @@ public class Animal {
             }
         });
         return doc;
+    }public List<DocumentSnapshot> getListAnimal() {
+        //Esto se trae una lista de documentos
+        List<DocumentSnapshot> res = new ArrayList<>();
+
+        animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        System.out.println(document.getData());
+                    }
+                }
+            }
+        });
+        return res;
     }
+
+
 }

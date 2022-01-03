@@ -11,8 +11,9 @@ import com.example.woofinder.clases.Solicitud;
 public class SolicitudActivity extends AppCompatActivity {
 
 
-    private Button bAddSolicitud;
-    private Button bDeleteSolicitud;
+    private Button btnAddSolicitud;
+    private Button btnDeleteSolicitud;
+    private Button btnListarSolicitud;
     private Solicitud solicitud= new Solicitud("prueboncia","otra prueboncia");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +23,27 @@ public class SolicitudActivity extends AppCompatActivity {
     }
 
     private void enlazarControles() {
-        this.bAddSolicitud = findViewById(R.id.bAddSolicitud);
-        this.bAddSolicitud.setOnClickListener(new View.OnClickListener() {
+        this.btnAddSolicitud = findViewById(R.id.bAddSolicitud);
+        this.btnAddSolicitud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 solicitud.addSolicitud();
             }
         });
-        this.bDeleteSolicitud = findViewById(R.id.bBorrarSolicitud);
-        this.bDeleteSolicitud.setOnClickListener(new View.OnClickListener() {
+
+        this.btnDeleteSolicitud = findViewById(R.id.bBorrarSolicitud);
+        this.btnDeleteSolicitud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 solicitud.deleteSolicitud();
+            }
+        });
+
+        this.btnAddSolicitud = findViewById(R.id.btnListarSolicitud);
+        this.btnAddSolicitud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                solicitud.getListSolicitud();
             }
         });
     }
