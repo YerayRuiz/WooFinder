@@ -2,7 +2,9 @@ package com.example.woofinder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -31,8 +33,6 @@ public class PruebaActivity extends AppCompatActivity {
     private static final  FirebaseFirestore db= FirebaseFirestore.getInstance();
     public static final String SHARED_DATA_KEY= "SHARED_DATABASE_KEY";
 
-
-
     private TextView nombreTextView;
     private TextView correoTextView;
     private CollectionReference crf;
@@ -42,13 +42,13 @@ public class PruebaActivity extends AppCompatActivity {
     private Button buttonAnimales;
     private Button buttonOrganizaciones;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prueba);
         // Al inicializar la primera actividad, hay que crear la instancia de la base de datos.
         SingletonDataBase.getInstance().put(SHARED_DATA_KEY, db);
-
 
         enlazarControles();
     /*
@@ -126,6 +126,6 @@ public class PruebaActivity extends AppCompatActivity {
 
             }
         });
-    }
 
+    }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navbar"
+    app:startDestination="@id/usuarioActivity">
+
+    <activity
+        android:id="@+id/usuarioActivity"
+        android:name="com.example.woofinder.UsuarioActivity"
+        android:label="UsuarioActivity" />
+    <activity
+        android:id="@+id/animalActivity"
+        android:name="com.example.woofinder.AnimalActivity"
+        android:label="activity_animal"
+        tools:layout="@layout/activity_animal" />
+    <activity
+        android:id="@+id/solicitudActivity"
+        android:name="com.example.woofinder.SolicitudActivity"
+        android:label="activity_solicitud"
+        tools:layout="@layout/activity_solicitud" />
+    <activity
+        android:id="@+id/pruebaActivity"
+        android:name="com.example.woofinder.PruebaActivity"
+        android:label="activity_prueba"
+        tools:layout="@layout/activity_prueba" />
+    <activity
+        android:id="@+id/addAnimalActivity"
+        android:name="com.example.woofinder.AddAnimalActivity"
+        android:label="activity_add_animal"
+        tools:layout="@layout/activity_add_animal" />
+</navigation>
