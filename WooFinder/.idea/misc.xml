@@ -4,6 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_main.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/activity_animal.xml" value="0.22" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/activity_animal2.xml" value="0.10960144927536232" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_animal.xml" value="0.22" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_prueba.xml" value="0.1" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_solicitud.xml" value="0.22" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_usuario.xml" value="0.1" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/activity_add_animal.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/activity_prueba.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/content_add_animal.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/content_prueba.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_organizacion.xml" value="0.21603260869565216" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_prueba.xml" value="0.13020833333333334" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_registro.xml" value="0.14270833333333333" />

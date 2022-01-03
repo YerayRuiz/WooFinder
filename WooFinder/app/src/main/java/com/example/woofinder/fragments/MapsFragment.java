@@ -56,21 +56,6 @@ public class MapsFragment extends Fragment {
         private LatLng pnt;
         private FusedLocationProviderClient client;
 
-
-
-
-        // Launch the permission window -- this is in onCreateView()
-
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
-
         public LatLng getpnt() {
             return this.pnt;
         }
@@ -83,49 +68,38 @@ public class MapsFragment extends Fragment {
 
 
             this.client = LocationServices.getFusedLocationProviderClient(getActivity());
-            System.out.println("Entra aqui");
             if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) !=
                     PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
                             != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                System.out.println("Entra en if");
                 return;
             }
+            // Están los permisos bien
             else{
-            }
-            client.getLastLocation()
-                    .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-                        @Override
-                        public void onSuccess(Location location) {
-                            // Got last known location. In some rare situations this can be null.
-                            if (location != null) {
-                                // Logic to handle location object
+                System.out.println("Entra en else");
+                client.getLastLocation()
+                        .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                            @Override
+                            public void onSuccess(Location location) {
+                                // Got last known location. In some rare situations this can be null.
 
+                                //System.out.println("La loc es:" + location);
+                                pnt=new LatLng(location.getLatitude(),location.getLongitude());
+
+                                ///System.out.println("EL pnt es "+pnt);
+                                CameraPosition camPos = new CameraPosition.Builder()
+                                        .target(new LatLng(location.getLatitude(), location.getLongitude()))
+                                        .zoom(18)
+                                        .bearing(location.getBearing())
+                                        .tilt(70)
+                                        .build();
+                                CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
+                                googleMap.animateCamera(camUpd3);
                             }
-                            System.out.println("La loc es:" + location);
-                            pnt=new LatLng(location.getLatitude(),location.getLongitude());
+                        });
 
-                            System.out.println("EL pnt es "+pnt);
-                            CameraPosition camPos = new CameraPosition.Builder()
-                                    .target(new LatLng(location.getLatitude(), location.getLongitude()))
-                                    .zoom(18)
-                                    .bearing(location.getBearing())
-                                    .tilt(70)
-                                    .build();
-                            CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
-                            googleMap.animateCamera(camUpd3);
-                        }
-                    });
-            // Esto de aquí no se ejecuta
-            System.out.println("EL pnt2 es "+pnt);
 
+            }
 
             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
@@ -134,7 +108,6 @@ public class MapsFragment extends Fragment {
                         googleMap.clear();
                         MarkerOptions marker = new MarkerOptions().position(new LatLng(point.latitude, point.longitude)).title("New Marker");
                         googleMap.addMarker(marker);
-                        System.out.println(point.latitude+"---"+ point.longitude);
                         AddAnimalActivity.setPoint(point);
 
                 }
