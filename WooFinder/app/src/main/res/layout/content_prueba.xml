@@ -95,4 +95,19 @@
         app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/navbar" />
 
+        android:text="Pulsa cada botoón para hacer el crud que corresponda"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAnimal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895"
+        tools:layout_editor_absoluteX="35dp" />
+
+    <Button
+        android:id="@+id/buttonRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="50dp"
+        android:text="REGISTRO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

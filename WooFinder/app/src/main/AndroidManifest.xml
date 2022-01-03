@@ -32,6 +32,12 @@
             android:exported="false" />
 
         <activity
+            android:name=".RegistroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrganizacionActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddAnimalActivity"
             android:exported="false" />
         <!--
