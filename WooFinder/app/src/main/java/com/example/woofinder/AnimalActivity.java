@@ -18,6 +18,7 @@ public class AnimalActivity extends AppCompatActivity {
 
     private Button btnAddAnimal;
     private Button btnDeleteAnimal;
+    private Button btnListarAnimal;
     private Animal animal= new Animal("galguito", new Timestamp(new Date()), new GeoPoint(1, 1), "PERRO");
 
 
@@ -44,6 +45,14 @@ public class AnimalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 animal.deleteAnimal();
+            }
+        });
+
+        this.btnListarAnimal = findViewById(R.id.btnListarAnimal);
+        this.btnListarAnimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animal.getListAnimal();
             }
         });
     }

@@ -12,7 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Usuario {
@@ -52,5 +54,22 @@ public class Usuario {
             }
         });
         return doc;
+    }
+
+    public List<DocumentSnapshot> getListUsuario() {
+        //Esto se trae una lista de documentos
+        List<DocumentSnapshot> res = new ArrayList<>();
+
+        usuarioCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot document : task.getResult()) {
+                        System.out.println(document.getData());
+                    }
+                }
+            }
+        });
+        return res;
     }
 }

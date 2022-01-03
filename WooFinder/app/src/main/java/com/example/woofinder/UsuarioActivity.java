@@ -12,6 +12,7 @@ import com.example.woofinder.clases.Usuario;
 public class UsuarioActivity extends AppCompatActivity {
     private Button btnAddUsuario;
     private Button btnDeleteUsuario;
+    private Button btnListarUsuario;
     private Usuario usuario= new Usuario("yeray.r7@uma.es","Yeray", "Organizacion/yx6y4KG4q8f6iGiVauoc", "yeraymakinon");
 
     @Override
@@ -29,11 +30,20 @@ public class UsuarioActivity extends AppCompatActivity {
                 usuario.addUsuario();
             }
         });
+
         this.btnDeleteUsuario = findViewById(R.id.btnDeleteUsuario);
         this.btnDeleteUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 usuario.deleteUsuario();
+            }
+        });
+
+        this.btnListarUsuario = findViewById(R.id.btnListarUsuario);
+        this.btnListarUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                usuario.getListUsuario();
             }
         });
     }
