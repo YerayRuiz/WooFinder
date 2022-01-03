@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.woofinder.clases.Organizacion;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -78,7 +79,6 @@ public class PruebaActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void funcion(QueryDocumentSnapshot documentSnapshot) {
