@@ -20,13 +20,14 @@ import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Organizacion {
-    private static FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+public class Organizacion implements Serializable {
+    static FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
     private static CollectionReference organizacionCollection = db.collection("Organizacion");
-    private String path;
+    private String id;
     private String cif;
     private String correo;
     private String nombre;
@@ -43,14 +44,14 @@ public class Organizacion {
         DocumentReference newRef = db.collection("Organizacion").document();
         newRef.set(data);
 
-        this.path = newRef.getId();
+        this.id = newRef.getId();
         this.cif = cif;
         this.correo = correo;
         this.nombre = nombre;
     }
 
-    public String getPath() {
-        return path;
+    public String getId() {
+        return id;
     }
 
     public String getCif() {
@@ -65,8 +66,8 @@ public class Organizacion {
         return nombre;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setCif(String cif) {
@@ -81,6 +82,17 @@ public class Organizacion {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Organizacion{" +
+                "id='" + id + '\'' +
+                ", cif='" + cif + '\'' +
+                ", correo='" + correo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
+
+    /*
     public void updateOrganizacion(String cif, String correo, String nombre){
         Map<String, Object> organizacion = new HashMap<>();
         organizacion.put("cif", cif);
@@ -111,4 +123,5 @@ public class Organizacion {
                 ", nombre='" + nombre + '\'' +
                 '}';
     }
+     */
 }

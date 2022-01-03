@@ -42,6 +42,7 @@ public class PruebaActivity extends AppCompatActivity {
     private Button buttonSolicitudes;
     private Button buttonAnimales;
     private Button buttonOrganizaciones;
+    private Button buttonRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,16 @@ public class PruebaActivity extends AppCompatActivity {
 
             }
         });
+
+        this.buttonRegistro = findViewById(R.id.buttonRegistro);
+        this.buttonRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),RegistroActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
 }
