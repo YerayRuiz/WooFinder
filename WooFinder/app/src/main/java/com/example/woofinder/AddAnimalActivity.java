@@ -38,7 +38,7 @@ public class AddAnimalActivity extends AppCompatActivity {
                 GeoPoint geoPoint = new GeoPoint(point.latitude,point.longitude);
                 String tipo = "PERRO";
                 Animal animal = new Animal(texto,timestamp,geoPoint,tipo);
-                animal.addAnimal();
+                ///animal.addAnimal();
                 finish();
             }
         });
