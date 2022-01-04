@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+        db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
         usuarioCollection = db.collection("Usuario");
         organizacionCollection = db.collection("Organizacion");
 

@@ -2,6 +2,7 @@ package com.example.woofinder.clases;
 
 import androidx.annotation.NonNull;
 
+import com.example.woofinder.InitialActivity;
 import com.example.woofinder.PruebaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Usuario implements Serializable {
-    private FirebaseFirestore db= SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+    private FirebaseFirestore db= SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
     private CollectionReference usuarioCollection = db.collection("Usuario");
     private CollectionReference organizacionCollection = db.collection("Organizacion");
 

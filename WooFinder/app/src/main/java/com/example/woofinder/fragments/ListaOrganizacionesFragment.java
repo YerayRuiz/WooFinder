@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.woofinder.InitialActivity;
 import com.example.woofinder.OrganizacionAdapter;
 import com.example.woofinder.PruebaActivity;
 import com.example.woofinder.R;
@@ -53,7 +54,7 @@ public class ListaOrganizacionesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+        db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
         organizacionCollection = db.collection("Organizacion");
 
         organizacionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

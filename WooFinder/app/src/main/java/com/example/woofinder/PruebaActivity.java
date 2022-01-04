@@ -31,8 +31,7 @@ import com.example.woofinder.clases.SingletonDataBase;
 public class PruebaActivity extends AppCompatActivity {
     // Creamos la database al inicializar la main activity y se lo añadimos al mapa singleton con la SHARED_KEY en onCreate.
 
-    private static final  FirebaseFirestore db= FirebaseFirestore.getInstance();
-    public static final String SHARED_DATA_KEY= "SHARED_DATABASE_KEY";
+
 
     private TextView nombreTextView;
     private TextView correoTextView;
@@ -51,7 +50,6 @@ public class PruebaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_prueba);
         // Al inicializar la primera actividad, hay que crear la instancia de la base de datos.
         // Habría que comprobar que no fuera null para no volver a obtenerlo
-        SingletonDataBase.getInstance().put(SHARED_DATA_KEY, db);
 
         enlazarControles();
     /*
@@ -62,7 +60,7 @@ public class PruebaActivity extends AppCompatActivity {
                 DocumentSnapshot doc = task.getResult();
                 funcion(doc);
             }
-        });*/
+        });
         this.crf= db.collection("Usuario");
         Task<QuerySnapshot> q = crf.whereEqualTo("correo", "joseluischulo@gmail.com").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -74,13 +72,13 @@ public class PruebaActivity extends AppCompatActivity {
                       } else {
                           System.out.println("No existe el documento");
                       }
-                     */
+
                 {for (QueryDocumentSnapshot d : task.getResult()){
                     System.out.println(d.getData().get("nombre"));
                     }
                 }
             }
-        });
+        });*/
     }
 
     private void funcion(QueryDocumentSnapshot documentSnapshot) {

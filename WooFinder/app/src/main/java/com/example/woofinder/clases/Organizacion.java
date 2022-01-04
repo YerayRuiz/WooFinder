@@ -6,6 +6,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 
+import com.example.woofinder.InitialActivity;
 import com.example.woofinder.OrganizacionActivity;
 import com.example.woofinder.OrganizacionAdapter;
 import com.example.woofinder.PruebaActivity;
@@ -30,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Organizacion implements Serializable {
-    private FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+    private FirebaseFirestore db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
     private CollectionReference organizacionCollection = db.collection("Organizacion");
     private String id;
     private String cif;

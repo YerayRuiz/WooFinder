@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.woofinder.AnimalAdapter;
+import com.example.woofinder.InitialActivity;
 import com.example.woofinder.OrganizacionAdapter;
 import com.example.woofinder.PruebaActivity;
 import com.example.woofinder.R;
@@ -47,7 +48,7 @@ public class ListaAnimalFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+        db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
         animalCollection = db.collection("Animal");
 
         animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
