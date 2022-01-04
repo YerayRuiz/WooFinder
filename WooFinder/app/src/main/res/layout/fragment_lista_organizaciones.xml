@@ -9,10 +9,10 @@
 
     <ListView
         android:id="@+id/listaOrganizaciones"
-        android:layout_width="327dp"
-        android:layout_height="341dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="41dp"
+        android:layout_width="335dp"
+        android:layout_height="566dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDesc"></ListView>
 
@@ -20,8 +20,8 @@
         android:id="@+id/txtDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
         android:text="Selecciona la organización"
         android:textAlignment="center"
         android:textSize="24sp"

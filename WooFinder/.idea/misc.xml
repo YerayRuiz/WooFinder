@@ -16,14 +16,12 @@
         <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_main.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_organizacion.xml" value="0.13677536231884058" />
         <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_prueba.xml" value="0.17721518987341772" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/activity_animal.xml" value="0.22" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/activity_animal2.xml" value="0.10960144927536232" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_animal.xml" value="0.22" />
+        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_prueba.xml" value="0.1" />
         <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_solicitud.xml" value="0.22" />
         <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/content_usuario.xml" value="0.1" />
-        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/fragment_lista_animal.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
-        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/fragment_nuevo_animal.xml" value="0.12" />
-        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/layout/fragment_usuario.xml" value="0.1" />
-        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/menu/menu_solicitud.xml" value="0.15833333333333333" />
-        <entry key="..\:/Users/adric/OneDrive/Escritorio/Universidad/4Software/PrimerCuatrimestre/Empotrados/WooFinder/WooFinder/WooFinder/app/src/main/res/menu/menunavbar.xml" value="0.22" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/activity_add_animal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/activity_prueba.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/content_add_animal.xml" value="0.25416666666666665" />
@@ -35,6 +33,7 @@
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_organizacion.xml" value="0.21603260869565216" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_prueba.xml" value="0.13020833333333334" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_registro.xml" value="0.14270833333333333" />
+        <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/content_main.xml" value="0.19429347826086957" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/content_prueba.xml" value="0.176" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/content_registro.xml" value="0.2" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/fragment_lista_organizaciones.xml" value="0.20018115942028986" />
@@ -48,12 +47,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.1" />
-      </ProjectState>
-    </option>
   </component>
 </project>

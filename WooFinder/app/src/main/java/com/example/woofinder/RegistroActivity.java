@@ -2,6 +2,9 @@ package com.example.woofinder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +18,8 @@ import android.widget.Toast;
 
 import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonDataBase;
+import com.example.woofinder.fragments.ListaOrganizacionesFragment;
+import com.example.woofinder.fragments.RegistroDatosFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -26,14 +31,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegistroActivity extends AppCompatActivity {
-    static FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
-    private static CollectionReference organizacionCollection = db.collection("Organizacion");
+    ListaOrganizacionesFragment listaOrganizacionesFragment = ListaOrganizacionesFragment.newInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        loadFragment(listaOrganizacionesFragment);
+
+/*
         organizacionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -61,5 +68,14 @@ public class RegistroActivity extends AppCompatActivity {
                 }
             }
         });
+ */
     }
+
+    public void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.commit();
+    }
+
+
 }
