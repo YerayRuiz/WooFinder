@@ -75,5 +75,54 @@ public class Animal {
         this.tipo = null;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Timestamp getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Timestamp fecha) {
+        this.fecha = fecha;
+    }
+
+    public GeoPoint getLocalizacion() {
+        return localizacion;
+    }
+
+    public void setLocalizacion(GeoPoint localizacion) {
+        this.localizacion = localizacion;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id='" + id + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fecha=" + fecha +
+                ", localizacion=" + localizacion +
+                ", tipo='" + tipo + '\'' +
+                '}';
+    }
 }

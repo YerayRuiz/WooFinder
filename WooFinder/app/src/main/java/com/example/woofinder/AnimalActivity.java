@@ -47,6 +47,6 @@ public class AnimalActivity extends AppCompatActivity {
                 animal.deleteAnimal();
             }
         });
-        
+
     }
 }

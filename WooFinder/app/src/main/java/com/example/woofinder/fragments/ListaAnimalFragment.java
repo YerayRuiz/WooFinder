@@ -2,30 +2,42 @@ package com.example.woofinder.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.example.woofinder.AnimalAdapter;
+import com.example.woofinder.OrganizacionAdapter;
+import com.example.woofinder.PruebaActivity;
 import com.example.woofinder.R;
+import com.example.woofinder.clases.Animal;
+import com.example.woofinder.clases.Organizacion;
+import com.example.woofinder.clases.SingletonDataBase;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListaAnimalFragment extends Fragment {
+
+    private FirebaseFirestore db;
+    private CollectionReference animalCollection;
 
     public ListaAnimalFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListaAnimalFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ListaAnimalFragment newInstance(String param1, String param2) {
+    public static ListaAnimalFragment newInstance() {
         ListaAnimalFragment fragment = new ListaAnimalFragment();
 
         return fragment;
@@ -34,6 +46,29 @@ public class ListaAnimalFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+        animalCollection = db.collection("Animal");
+
+        animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                List<Animal> list = new ArrayList<>();
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()) {
+                        Animal animal = document.toObject(Animal.class);
+                        animal.setId(document.getId());
+                        list.add(animal);
+                    }
+                    ListView listaAnimales = (ListView) getView().findViewById(R.id.listaAnimales);
+                    AnimalAdapter animalAdapter = new AnimalAdapter(getContext(), list);
+                    listaAnimales.setAdapter(animalAdapter);
+
+                } else {
+                    Log.d("ListaAnimalFragment", "Error getting documents: ", task.getException());
+                }
+            }
+        });
     }
 
     @Override
