@@ -20,55 +20,78 @@ import java.util.Map;
 public class Solicitud {
     private FirebaseFirestore db= SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
     private CollectionReference solicitudCollection = db.collection("Solicitud");
-    private Map<String, Object> solicitud = new HashMap<>();
-    private DocumentSnapshot doc;
-    public Solicitud(String cU, String cO){
-        this.solicitud.put("correoUsuario",cU);
-        this.solicitud.put("correoOrg",cO);
+    private String id;
+    private String correoUser;
+    private Organizacion organizacion;
+
+    public Solicitud() {
+
     }
 
+    public Solicitud(String correoUser, Organizacion organizacion) {
+        DocumentReference organizacionReference = db.document(organizacion.getId());
 
-    // Esto hace el update y el add
-    public void addSolicitud(){
-        solicitudCollection.document("prueba").set(this.solicitud);
+        Map<String, Object> data = new HashMap<>();
+        data.put("correoUser", correoUser);
+        data.put("idOrganizacion", organizacionReference);
+
+        DocumentReference newRef = db.collection("Solicitud").document();
+        newRef.set(data);
+
+        this.id = newRef.getId();
+        this.correoUser = correoUser;
+        this.organizacion = organizacion;
     }
+
+    public void updateSolicitud(String correoUser, Organizacion organizacion){
+        DocumentReference organizacionReference = db.document(organizacion.getId());
+        Map<String, Object> solicitud = new HashMap<>();
+        solicitud.put("correoUser", correoUser);
+        solicitud.put("idOrganizacion", organizacionReference);
+
+        solicitudCollection.document(this.id).set(solicitud);
+
+        this.correoUser = correoUser;
+        this.organizacion = organizacion;
+    }
+
     public void deleteSolicitud(){
-        doc = findDocByCorreoUsuario();
-        if(doc != null) doc.getReference().delete();
+        solicitudCollection.document(this.id).delete();
+        this.id = null;
+        this.correoUser = null;
+        this.organizacion = null;
     }
 
-    public Map<String, Object> getSolicitud() {
-        return solicitud;
+    public String getId() {
+        return id;
     }
 
-    private DocumentSnapshot findDocByCorreoUsuario(){
-        Task<QuerySnapshot> q = solicitudCollection.whereEqualTo("correoUsuario", this.solicitud.get("correoUsuario")).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful() && !task.getResult().getDocuments().isEmpty()){
-                    doc=task.getResult().getDocuments().get(0);
-                }
-            }
-        });
-        return doc;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public List<DocumentSnapshot> getListSolicitud() {
-        //Esto se trae una lista de documentos
-        List<DocumentSnapshot> res = new ArrayList<>();
-
-        solicitudCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot document : task.getResult()) {
-                        System.out.println(document.getData());
-                    }
-                }
-            }
-        });
-        return res;
+    public String getCorreoUser() {
+        return correoUser;
     }
 
+    public void setCorreoUser(String correoUser) {
+        this.correoUser = correoUser;
+    }
 
+    public Organizacion getOrganizacion() {
+        return organizacion;
+    }
+
+    public void setOrganizacion(Organizacion organizacion) {
+        this.organizacion = organizacion;
+    }
+
+    @Override
+    public String toString() {
+        return "Solicitud{" +
+                "id='" + id + '\'' +
+                ", correoUser='" + correoUser + '\'' +
+                ", organizacion=" + organizacion +
+                '}';
+    }
 }

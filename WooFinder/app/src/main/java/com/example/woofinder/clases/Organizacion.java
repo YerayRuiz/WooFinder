@@ -82,6 +82,7 @@ public class Organizacion implements Serializable {
         this.nombre = nombre;
     }
 
+    /*
     @Override
     public String toString() {
         return "Organizacion{" +
@@ -91,24 +92,24 @@ public class Organizacion implements Serializable {
                 ", nombre='" + nombre + '\'' +
                 '}';
     }
+    */
 
-    /*
     public void updateOrganizacion(String cif, String correo, String nombre){
         Map<String, Object> organizacion = new HashMap<>();
         organizacion.put("cif", cif);
         organizacion.put("correo", correo);
         organizacion.put("nombre", nombre);
 
-        organizacionCollection.document(this.path).set(organizacion);
+        organizacionCollection.document(this.id).set(organizacion);
 
         this.cif = cif;
         this.correo = correo;
         this.nombre = nombre;
     }
 
-    public void deleteOrganizacion(String path){
-        organizacionCollection.document(path).delete();
-        this.path = null;
+    public void deleteOrganizacion(){
+        organizacionCollection.document(this.id).delete();
+        this.id = null;
         this.cif = null;
         this.correo = null;
         this.nombre = null;
@@ -117,11 +118,11 @@ public class Organizacion implements Serializable {
     @Override
     public String toString() {
         return "Organizacion{" +
-                "path='" + path + '\'' +
+                "path='" + id + '\'' +
                 ", cif='" + cif + '\'' +
                 ", correo='" + correo + '\'' +
                 ", nombre='" + nombre + '\'' +
                 '}';
     }
-     */
+
 }
