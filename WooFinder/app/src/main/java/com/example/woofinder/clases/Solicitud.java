@@ -21,6 +21,7 @@ import java.util.Map;
 public class Solicitud implements Serializable {
     private FirebaseFirestore db= SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
     private CollectionReference solicitudCollection = db.collection("Solicitud");
+    private CollectionReference organizacionCollection = db.collection("Organizacion");
     private String id;
     private String correoUser;
     private Organizacion organizacion;
@@ -30,7 +31,7 @@ public class Solicitud implements Serializable {
     }
 
     public Solicitud(String correoUser, Organizacion organizacion) {
-        DocumentReference organizacionReference = db.document(organizacion.getId());
+        DocumentReference organizacionReference = organizacionCollection.document(organizacion.getId());
 
         Map<String, Object> data = new HashMap<>();
         data.put("correoUser", correoUser);
@@ -45,7 +46,7 @@ public class Solicitud implements Serializable {
     }
 
     public void updateSolicitud(String correoUser, Organizacion organizacion){
-        DocumentReference organizacionReference = db.document(organizacion.getId());
+        DocumentReference organizacionReference = organizacionCollection.document(organizacion.getId());
         Map<String, Object> solicitud = new HashMap<>();
         solicitud.put("correoUser", correoUser);
         solicitud.put("idOrganizacion", organizacionReference);

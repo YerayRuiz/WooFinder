@@ -50,6 +50,7 @@ public class PruebaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prueba);
         // Al inicializar la primera actividad, hay que crear la instancia de la base de datos.
+        // Habría que comprobar que no fuera null para no volver a obtenerlo
         SingletonDataBase.getInstance().put(SHARED_DATA_KEY, db);
 
         enlazarControles();

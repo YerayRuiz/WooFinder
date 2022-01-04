@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.woofinder.R;
 import com.example.woofinder.clases.Organizacion;
+import com.example.woofinder.clases.Solicitud;
 
 import java.util.regex.Pattern;
 
@@ -68,9 +69,13 @@ public class RegistroDatosFragment extends Fragment {
             if (!validarEmail(email)){
                 inputEmail.setError("Email no válido");
             } else {
-                String cadena = "Se creará una solicitud de registro para el email "+email+
-                        " en la organizacion" + org.getNombre();
+                Solicitud solicitud = new Solicitud(email, org);
+
+                String cadena = "Solicitud de registro para el email "+email+
+                        " en la organizacion" + org.getNombre() + " creada con éxito";
                 Toast.makeText(getContext(),cadena, Toast.LENGTH_SHORT).show();
+
+                //Falta hacer el intent para irse a inicio
             }
         }
     };

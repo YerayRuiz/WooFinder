@@ -36,6 +36,9 @@ import java.util.List;
  */
 public class ListaOrganizacionesFragment extends Fragment {
 
+    private FirebaseFirestore db;
+    private CollectionReference organizacionCollection;
+
     public ListaOrganizacionesFragment() {
         // Required empty public constructor
     }
@@ -46,12 +49,12 @@ public class ListaOrganizacionesFragment extends Fragment {
         return fragment;
     }
 
-    static FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
-    private static CollectionReference organizacionCollection = db.collection("Organizacion");
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+        organizacionCollection = db.collection("Organizacion");
 
         organizacionCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

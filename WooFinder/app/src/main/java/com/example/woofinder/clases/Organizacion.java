@@ -30,8 +30,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Organizacion implements Serializable {
-    static FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
-    private static CollectionReference organizacionCollection = db.collection("Organizacion");
+    private FirebaseFirestore db = SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
+    private CollectionReference organizacionCollection = db.collection("Organizacion");
     private String id;
     private String cif;
     private String correo;
