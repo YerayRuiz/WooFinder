@@ -74,7 +74,6 @@ public class MapsFragment extends Fragment {
                             != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
-            // Están los permisos bien
             else{
                 System.out.println("Entra en else");
                 client.getLastLocation()
@@ -83,10 +82,8 @@ public class MapsFragment extends Fragment {
                             public void onSuccess(Location location) {
                                 // Got last known location. In some rare situations this can be null.
 
-                                //System.out.println("La loc es:" + location);
                                 pnt=new LatLng(location.getLatitude(),location.getLongitude());
 
-                                ///System.out.println("EL pnt es "+pnt);
                                 CameraPosition camPos = new CameraPosition.Builder()
                                         .target(new LatLng(location.getLatitude(), location.getLongitude()))
                                         .zoom(18)
