@@ -39,6 +39,7 @@ import com.google.android.gms.tasks.Task;
 
 public class MapsFragment extends Fragment {
 
+    // Esto es para coger la ubi actual
     private ActivityResultLauncher<String> mPermissionResult = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
             new ActivityResultCallback<Boolean>() {
