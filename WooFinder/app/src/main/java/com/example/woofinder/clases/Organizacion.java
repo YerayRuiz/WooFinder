@@ -2,11 +2,14 @@ package com.example.woofinder.clases;
 
 import android.nfc.Tag;
 import android.util.Log;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 
 import com.example.woofinder.OrganizacionActivity;
+import com.example.woofinder.OrganizacionAdapter;
 import com.example.woofinder.PruebaActivity;
+import com.example.woofinder.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,7 +24,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Organizacion implements Serializable {
@@ -92,14 +97,14 @@ public class Organizacion implements Serializable {
                 '}';
     }
 
-    /*
+
     public void updateOrganizacion(String cif, String correo, String nombre){
         Map<String, Object> organizacion = new HashMap<>();
         organizacion.put("cif", cif);
         organizacion.put("correo", correo);
         organizacion.put("nombre", nombre);
 
-        organizacionCollection.document(this.path).set(organizacion);
+        organizacionCollection.document(this.id).set(organizacion);
 
         this.cif = cif;
         this.correo = correo;
@@ -108,20 +113,9 @@ public class Organizacion implements Serializable {
 
     public void deleteOrganizacion(String path){
         organizacionCollection.document(path).delete();
-        this.path = null;
+        this.id = null;
         this.cif = null;
         this.correo = null;
         this.nombre = null;
     }
-
-    @Override
-    public String toString() {
-        return "Organizacion{" +
-                "path='" + path + '\'' +
-                ", cif='" + cif + '\'' +
-                ", correo='" + correo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                '}';
-    }
-     */
 }
