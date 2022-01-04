@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.Usuario;
 
 
@@ -13,7 +14,7 @@ public class UsuarioActivity extends AppCompatActivity {
     private Button btnAddUsuario;
     private Button btnDeleteUsuario;
     private Button btnListarUsuario;
-    private Usuario usuario= new Usuario("yeray.r7@uma.es","Yeray", "Organizacion/yx6y4KG4q8f6iGiVauoc", "yeraymakinon");
+    private Usuario usuario= new Usuario("yeray.r7@uma.es","Yeray", new Organizacion(), "yeraymakinon");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class UsuarioActivity extends AppCompatActivity {
         this.btnAddUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                usuario.addUsuario();
+                usuario.updateUsuario("", "", new Organizacion(), "");
             }
         });
 
@@ -39,12 +40,5 @@ public class UsuarioActivity extends AppCompatActivity {
             }
         });
 
-        this.btnListarUsuario = findViewById(R.id.btnListarUsuario);
-        this.btnListarUsuario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                usuario.getListUsuario();
-            }
-        });
     }
 }

@@ -7,6 +7,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
@@ -21,56 +22,110 @@ import java.util.Map;
 public class Usuario implements Serializable {
     private FirebaseFirestore db= SingletonDataBase.getInstance().get(PruebaActivity.SHARED_DATA_KEY);
     private CollectionReference usuarioCollection = db.collection("Usuario");
-    private Map<String, Object> usuario = new HashMap<>();
-    private DocumentSnapshot doc;
+    private CollectionReference organizacionCollection = db.collection("Organizacion");
 
-    public Usuario(String correo, String nombre, String organizacion, String password){
-        this.usuario.put("correo", correo);
-        this.usuario.put("nombre", nombre);
-        this.usuario.put("organizacion", organizacion);
-        this.usuario.put("password", password);
+    private String id;
+    private String correo;
+    private String nombre;
+    private Organizacion organizacion;
+    private String password;
+
+    public Usuario() {
+
     }
 
-    // Esto hace el update y el add
-    public void addUsuario(){
-        usuarioCollection.document("prueba").set(this.usuario);
+    public Usuario(String correo, String nombre, Organizacion organizacion, String password) {
+        DocumentReference organizacionReference = organizacionCollection.document(organizacion.getId());
+        Map<String, Object> data = new HashMap<>();
+        data.put("correo", correo);
+        data.put("nombre", nombre);
+        data.put("organizacion", organizacionReference);
+        data.put("password", password);
+
+        DocumentReference newRef = db.collection("Usuario").document();
+        newRef.set(data);
+
+        this.id = newRef.getId();
+        this.correo = correo;
+        this.nombre = nombre;
+        this.organizacion = organizacion;
+        this.password = password;
     }
 
-    public Map<String, Object> getUsuario() {
-        return usuario;
+    public void updateUsuario(String correo, String nombre, Organizacion organizacion, String password){
+        DocumentReference organizacionReference = organizacionCollection.document(organizacion.getId());
+
+        Map<String, Object> usuario = new HashMap<>();
+        usuario.put("correo", correo);
+        usuario.put("nombre", nombre);
+        usuario.put("organizacion", organizacion);
+        usuario.put("password", password);
+
+        organizacionCollection.document(this.id).set(organizacion);
+
+        this.correo = correo;
+        this.nombre = nombre;
+        this.organizacion = organizacion;
+        this.password = password;
     }
 
     public void deleteUsuario(){
-        doc = findUsuarioByCorreo();
-        if(doc != null) doc.getReference().delete();
+        organizacionCollection.document(this.id).delete();
+        this.id = null;
+        this.correo = null;
+        this.nombre = null;
+        this.organizacion = null;
+        this.password = password;
     }
 
-    private DocumentSnapshot findUsuarioByCorreo(){
-        Task<QuerySnapshot> q = usuarioCollection.whereEqualTo("correo", this.usuario.get("correo")).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful() && !task.getResult().getDocuments().isEmpty()){
-                    doc=task.getResult().getDocuments().get(0);
-                }
-            }
-        });
-        return doc;
+    public String getId() {
+        return id;
     }
 
-    public List<DocumentSnapshot> getListUsuario() {
-        //Esto se trae una lista de documentos
-        List<DocumentSnapshot> res = new ArrayList<>();
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        usuarioCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot document : task.getResult()) {
-                        System.out.println(document.getData());
-                    }
-                }
-            }
-        });
-        return res;
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Organizacion getOrganizacion() {
+        return organizacion;
+    }
+
+    public void setOrganizacion(Organizacion organizacion) {
+        this.organizacion = organizacion;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", correo='" + correo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", organizacion=" + organizacion +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

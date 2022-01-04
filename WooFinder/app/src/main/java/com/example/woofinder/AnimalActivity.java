@@ -47,13 +47,6 @@ public class AnimalActivity extends AppCompatActivity {
                 animal.deleteAnimal();
             }
         });
-
-        this.btnListarAnimal = findViewById(R.id.btnListarAnimal);
-        this.btnListarAnimal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                animal.getListAnimal();
-            }
-        });
+        
     }
 }
