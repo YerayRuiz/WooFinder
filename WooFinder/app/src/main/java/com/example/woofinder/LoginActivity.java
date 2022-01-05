@@ -38,7 +38,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText tEmail;
     private EditText tPassword;
     private Button bLogin;
-    private TextView tIncorrecto;
     private TextView tRegistro;
 
     @Override
@@ -56,9 +55,7 @@ public class LoginActivity extends AppCompatActivity {
     private void enlazarControles() {
         this.tEmail = (EditText) findViewById(R.id.tEmail);
         this.tPassword = (EditText) findViewById(R.id.tPwd);
-        this.tIncorrecto = (TextView) findViewById(R.id.tIncorrecto);
         this.tRegistro = (TextView) findViewById(R.id.tRegistro);
-        tIncorrecto.setVisibility(View.INVISIBLE);
     }
 
     public void iniciarSesion(View view){

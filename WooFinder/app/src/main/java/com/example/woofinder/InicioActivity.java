@@ -10,6 +10,7 @@ import android.widget.Button;
 public class InicioActivity extends AppCompatActivity {
     Button btnPrueba;
     Button btnMain;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,15 @@ public class InicioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),PruebaActivity.class);
+                startActivity(i);
+            }
+        });
+
+        this.btnLogin = findViewById(R.id.buttonLogin);
+        this.btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(i);
             }
         });
