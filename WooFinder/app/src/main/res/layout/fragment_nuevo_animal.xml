@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.NuevoAnimalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="AQUI SE CREA UN ANIMAL" />
+        android:layout_height="match_parent">
 
+        <FrameLayout
+            android:id="@+id/frameLayout4"
+            android:layout_width="409dp"
+            android:layout_height="545dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragmentContainerView4"
+                android:name="com.example.woofinder.fragments.NuevoAnimalFragmentMapa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_nuevo_animal_mapa" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/btnNuevoAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="248dp"
+            android:layout_marginTop="76dp"
+            android:text="Nuevo Animal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+
+        <EditText
+            android:id="@+id/txtNombreAnimal"
+            android:layout_width="234dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Descripcion Animal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+
+        <EditText
+            android:id="@+id/txtTipoAnimal"
+            android:layout_width="234dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="112dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Tipo Animal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
