@@ -1,12 +1,5 @@
 package com.example.woofinder.fragments;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.location.Location;
-import android.os.Bundle;
-
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -15,20 +8,16 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import com.example.woofinder.AddAnimalActivity;
-import com.example.woofinder.AnimalAdapter;
 import com.example.woofinder.InitialActivity;
-import com.example.woofinder.OrganizacionAdapter;
-import com.example.woofinder.PruebaActivity;
 import com.example.woofinder.R;
-import com.example.woofinder.clases.Animal;
-import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonDataBase;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -44,18 +33,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ListaAnimalFragment extends Fragment {
+public class NuevoAnimalFragmentMapa extends Fragment {
 
     private FirebaseFirestore db;
     private CollectionReference animalCollection;
@@ -77,8 +59,9 @@ public class ListaAnimalFragment extends Fragment {
 
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
-        private LatLng pnt;
+        public LatLng pnt;
         private FusedLocationProviderClient client;
+
 
         public LatLng getpnt() {
             return this.pnt;
@@ -131,51 +114,52 @@ public class ListaAnimalFragment extends Fragment {
 
                 LocationServices.getFusedLocationProviderClient(getActivity()).
                         getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location. In some rare situations this can be null.
+
+                        pnt=new LatLng(location.getLatitude(),location.getLongitude());
+
+                        CameraPosition camPos = new CameraPosition.Builder()
+                                .target(new LatLng(location.getLatitude(), location.getLongitude()))
+                                .zoom(18)
+                                .bearing(location.getBearing())
+                                .tilt(70)
+                                .build();
+                        CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
+                        googleMap.animateCamera(camUpd3);
+
+                        db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
+                        animalCollection = db.collection("Animal");
+/*
+                        animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                             @Override
-                            public void onSuccess(Location location) {
-                                // Got last known location. In some rare situations this can be null.
-
-                                pnt=new LatLng(location.getLatitude(),location.getLongitude());
-
-                                CameraPosition camPos = new CameraPosition.Builder()
-                                        .target(new LatLng(location.getLatitude(), location.getLongitude()))
-                                        .zoom(18)
-                                        .bearing(location.getBearing())
-                                        .tilt(70)
-                                        .build();
-                                CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
-                                googleMap.animateCamera(camUpd3);
-
-                                db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
-                                animalCollection = db.collection("Animal");
-
-                                // Esto es la lista de animales
-                                animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                        List<Animal> list = new ArrayList<>();
-                                        if(task.isSuccessful()){
-                                            for(QueryDocumentSnapshot document : task.getResult()) {
-                                                Animal animal = document.toObject(Animal.class);
-                                                animal.setId(document.getId());
-                                                list.add(animal);
-                                            }
-                                            googleMap.clear();
-                                            for(Animal a: list){
-                                                MarkerOptions marker = new MarkerOptions().position(new LatLng(a.getLocalizacion().getLatitude(),
-                                                        a.getLocalizacion().getLongitude())).title(a.getDescripcion());
-                                                marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.perroicon50));
-                                                googleMap.addMarker(marker);
-                                            }
-
-                                        } else {
-                                            Log.d("ListaAnimalFragment", "Error getting documents: ", task.getException());
-                                        }
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                List<Animal> list = new ArrayList<>();
+                                if(task.isSuccessful()){
+                                    for(QueryDocumentSnapshot document : task.getResult()) {
+                                        Animal animal = document.toObject(Animal.class);
+                                        animal.setId(document.getId());
+                                        list.add(animal);
                                     }
-                                });
+                                    googleMap.clear();
+                                    for(Animal a: list){
+                                        MarkerOptions marker = new MarkerOptions().position(new LatLng(a.getLocalizacion().getLatitude(),
+                                                a.getLocalizacion().getLongitude())).title(a.getDescripcion());
+                                        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.perroicon50));
+                                        googleMap.addMarker(marker);
+                                    }
 
+                                } else {
+                                    Log.d("ListaAnimalFragment", "Error getting documents: ", task.getException());
+                                }
                             }
                         });
+
+ */
+
+                    }
+                });
 
 
             }
@@ -183,14 +167,13 @@ public class ListaAnimalFragment extends Fragment {
             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng point) {
-                    /*
+
                     pnt=point;
                     googleMap.clear();
-                    MarkerOptions marker = new MarkerOptions().position(new LatLng(point.latitude, point.longitude)).title("New Marker");
+                    MarkerOptions marker = new MarkerOptions().position(new LatLng(point.latitude, point.longitude)).title("New Marker").icon(BitmapDescriptorFactory.fromResource(R.drawable.perroicon50));
                     googleMap.addMarker(marker);
-                    AddAnimalActivity.setPoint(point);
+                    //AddAnimalActivity.setPoint(point);
 
-                     */
 
                 }
             });
@@ -198,12 +181,12 @@ public class ListaAnimalFragment extends Fragment {
     };
 
 
-    public ListaAnimalFragment() {
+    public NuevoAnimalFragmentMapa() {
         // Required empty public constructor
     }
 
-    public static ListaAnimalFragment newInstance() {
-        ListaAnimalFragment fragment = new ListaAnimalFragment();
+    public static NuevoAnimalFragmentMapa newInstance() {
+        NuevoAnimalFragmentMapa fragment = new NuevoAnimalFragmentMapa();
 
         return fragment;
     }
@@ -249,7 +232,7 @@ public class ListaAnimalFragment extends Fragment {
         this.mPermissionResult.launch(Manifest.permission.ACCESS_FINE_LOCATION);
 
 
-        return inflater.inflate(com.example.woofinder.R.layout.fragment_maps, container, false);
+        return inflater.inflate(R.layout.fragment_nuevo_animal_mapa, container, false);
     }
 
     @Override

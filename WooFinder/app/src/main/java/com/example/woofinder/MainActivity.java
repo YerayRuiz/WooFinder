@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.woofinder.fragments.ListaAnimalFragment;
 import com.example.woofinder.fragments.NuevoAnimalFragment;
+import com.example.woofinder.fragments.NuevoAnimalFragmentMapa;
 import com.example.woofinder.fragments.UsuarioFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
