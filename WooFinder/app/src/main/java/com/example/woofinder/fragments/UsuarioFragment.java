@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.example.woofinder.InitialActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.clases.SingletonDataBase;
+import com.example.woofinder.clases.SingletonUsuario;
+import com.example.woofinder.clases.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +23,7 @@ public class UsuarioFragment extends Fragment {
     private TextView viewCorreo;
     private TextView viewNombre;
     private TextView viewOrganizacion;
+    private Usuario user;
 
     public UsuarioFragment() {
         // Required empty public constructor
@@ -34,6 +37,7 @@ public class UsuarioFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        user = SingletonUsuario.getInstance().get("USUARIO");
     }
 
     @Override
@@ -44,9 +48,9 @@ public class UsuarioFragment extends Fragment {
         viewCorreo = myInflatedView.findViewById(R.id.textCorreo);
         viewNombre = myInflatedView.findViewById(R.id.textNombre);
         viewOrganizacion = myInflatedView.findViewById(R.id.textOrganizacion);
-        viewCorreo.setText("Correo prueba");
-        viewNombre.setText("Nombre prueba");
-        viewOrganizacion.setText("Organizacion prueba");
+        viewCorreo.setText(user.getCorreo());
+        viewNombre.setText(user.getNombre());
+        viewOrganizacion.setText(user.getOrganizacion().getNombre());
         return myInflatedView;
     }
 }
