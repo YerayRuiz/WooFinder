@@ -24,6 +24,16 @@
             android:layout_marginStart="144dp"
             android:layout_marginTop="168dp"
             android:text="PRUEBA" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="121dp"
+            android:layout_height="64dp"
+            android:layout_below="@+id/btnPrueba"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="48dp"
+            android:text="Login" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
