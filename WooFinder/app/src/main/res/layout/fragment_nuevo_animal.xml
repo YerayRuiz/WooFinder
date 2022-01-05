@@ -13,7 +13,9 @@
         <FrameLayout
             android:id="@+id/frameLayout4"
             android:layout_width="409dp"
-            android:layout_height="545dp"
+            android:layout_height="509dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -28,37 +30,38 @@
 
         <Button
             android:id="@+id/btnNuevoAnimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="248dp"
-            android:layout_marginTop="76dp"
+            android:layout_width="113dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="32dp"
             android:text="Nuevo Animal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
         <EditText
             android:id="@+id/txtNombreAnimal"
-            android:layout_width="234dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="195dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
+            android:hint="Descripcion Animal"
             android:inputType="textPersonName"
-            android:text="Descripcion Animal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
         <EditText
             android:id="@+id/txtTipoAnimal"
-            android:layout_width="234dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="112dp"
+            android:layout_width="193dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
             android:ems="10"
+            android:hint="Tipo Animal"
             android:inputType="textPersonName"
-            android:text="Tipo Animal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+            app:layout_constraintTop_toBottomOf="@+id/txtNombreAnimal"
+            app:layout_constraintVertical_bias="0.136" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
