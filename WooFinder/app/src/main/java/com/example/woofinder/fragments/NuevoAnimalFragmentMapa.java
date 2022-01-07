@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import com.example.woofinder.InitialActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.clases.SingletonDataBase;
+import com.example.woofinder.clases.SingletonPoint;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -59,12 +60,13 @@ public class NuevoAnimalFragmentMapa extends Fragment {
 
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
-        public LatLng pnt;
+        public  LatLng pnt;
         private FusedLocationProviderClient client;
 
 
-        public LatLng getpnt() {
-            return this.pnt;
+        public  LatLng getpnt() {
+
+            return pnt;
         }
 
 
@@ -169,6 +171,7 @@ public class NuevoAnimalFragmentMapa extends Fragment {
                 public void onMapClick(LatLng point) {
 
                     pnt=point;
+                    SingletonPoint.getInstance().put("POINT",point);
                     googleMap.clear();
                     MarkerOptions marker = new MarkerOptions().position(new LatLng(point.latitude, point.longitude)).title("New Marker").icon(BitmapDescriptorFactory.fromResource(R.drawable.perroicon50));
                     googleMap.addMarker(marker);

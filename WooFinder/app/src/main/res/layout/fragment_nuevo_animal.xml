@@ -39,9 +39,9 @@
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
         <EditText
-            android:id="@+id/txtNombreAnimal"
+            android:id="@+id/txtnameAnimal"
             android:layout_width="195dp"
-            android:layout_height="47dp"
+            android:layout_height="48dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:ems="10"
@@ -51,7 +51,7 @@
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
         <EditText
-            android:id="@+id/txtTipoAnimal"
+            android:id="@+id/txtTypeAnimal"
             android:layout_width="193dp"
             android:layout_height="48dp"
             android:layout_marginStart="24dp"
@@ -60,7 +60,7 @@
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNombreAnimal"
+            app:layout_constraintTop_toBottomOf="@+id/txtnameAnimal"
             app:layout_constraintVertical_bias="0.136" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,9 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.woofinder.R;
 import com.example.woofinder.clases.Animal;
+import com.example.woofinder.clases.SingletonPoint;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.GeoPoint;
+
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +50,26 @@ public class NuevoAnimalFragment extends Fragment {
         return fragment;
     }
 
+    public String getTxtNombreAnimalString() {
+        return txtNombreAnimal.getText().toString();
+    }
+
+    public String getTxtTipoAnimalString() {
+        return txtTipoAnimal.getText().toString();
+    }
+
+    public Button getBtnNuevoAnimal() {
+        return btnNuevoAnimal;
+    }
+
+    public EditText getTxtTipoAnimal() {
+        return txtTipoAnimal;
+    }
+
+    public EditText getTxtNombreAnimal() {
+        return txtNombreAnimal;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,22 +77,37 @@ public class NuevoAnimalFragment extends Fragment {
     }
 
     private void enlazarControles() {
-        this.btnNuevoAnimal = getView().findViewById(R.id.btnNuevoAnimal);
-        this.txtNombreAnimal = getView().findViewById(R.id.txtDescripcionAnimal);
-        this.txtTipoAnimal = getView().findViewById(R.id.txtTipoAnimal);
 
-        this.btnNuevoAnimal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Animal a = new Animal()
-            }
-        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nuevo_animal, container, false);
+        View myInflatedView = inflater.inflate(R.layout.fragment_nuevo_animal, container, false);
+
+        this.btnNuevoAnimal=myInflatedView.findViewById(R.id.btnNuevoAnimal);
+        this.txtNombreAnimal = myInflatedView.findViewById(R.id.txtnameAnimal);
+        this.txtTipoAnimal = myInflatedView.findViewById(R.id.txtTypeAnimal);
+
+        this.btnNuevoAnimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                LatLng point = SingletonPoint.getInstance().get("POINT");
+                if(point == null){
+                    Toast.makeText(getActivity(),
+                            "Click en el mapa por favor", Toast.LENGTH_LONG).show();
+                }else{
+                    Timestamp t = new Timestamp(new Date());
+                    GeoPoint g = new GeoPoint(point.latitude, point.longitude);
+                    Animal a = new Animal(getTxtNombreAnimalString(),t, g, getTxtTipoAnimalString());
+                    Toast.makeText(getActivity(),
+                            "Animal creado exitosamente", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+        return myInflatedView;
     }
 }
