@@ -59,10 +59,10 @@ public class Usuario implements Serializable {
         Map<String, Object> usuario = new HashMap<>();
         usuario.put("correo", correo);
         usuario.put("nombre", nombre);
-        usuario.put("organizacion", organizacion);
+        usuario.put("organizacion", organizacionReference);
         usuario.put("password", password);
 
-        organizacionCollection.document(this.id).set(organizacion);
+        usuarioCollection.document(this.id).set(usuario);
 
         this.correo = correo;
         this.nombre = nombre;
@@ -71,7 +71,7 @@ public class Usuario implements Serializable {
     }
 
     public void deleteUsuario(){
-        organizacionCollection.document(this.id).delete();
+        usuarioCollection.document(this.id).delete();
         this.id = null;
         this.correo = null;
         this.nombre = null;
