@@ -5,35 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="220dp"
+        android:layout_height="68dp"
+        android:foregroundGravity="center"
+        android:text="INICIAR SESIÓN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.321" />
 
-        <Button
-            android:id="@+id/btnMain"
-            android:layout_width="119dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="144dp"
-            android:layout_marginTop="80dp"
-            android:text="MAIN" />
+    <Button
+        android:id="@+id/btnMain"
+        android:layout_width="226dp"
+        android:layout_height="57dp"
+        android:foregroundGravity="center"
+        android:text="CONTINUAR SIN INICIAR SESIÓN"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.514" />
 
-        <Button
-            android:id="@+id/btnPrueba"
-            android:layout_width="122dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="144dp"
-            android:layout_marginTop="168dp"
-            android:text="PRUEBA" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Bienvenido a WooFinder!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="121dp"
-            android:layout_height="64dp"
-            android:layout_below="@+id/btnPrueba"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="145dp"
-            android:layout_marginTop="48dp"
-            android:text="Login" />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="60dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+        app:layout_constraintVertical_bias="0.054"
+        app:srcCompat="@drawable/logowoofinder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.woofinder.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.woofinder.AnimalActivity;
+import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.Solicitud;
@@ -75,7 +78,9 @@ public class RegistroDatosFragment extends Fragment {
                         " en la organizacion" + org.getNombre() + " creada con éxito";
                 Toast.makeText(getContext(),cadena, Toast.LENGTH_SHORT).show();
 
-                //Falta hacer el intent para irse a inicio
+                //Falta hacer el intent para irse a inicio, que de momento no nos lleva
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                getActivity().startActivity(i);
             }
         }
     };
