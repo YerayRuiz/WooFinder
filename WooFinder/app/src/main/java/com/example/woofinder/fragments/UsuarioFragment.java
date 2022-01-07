@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.woofinder.InitialActivity;
@@ -24,6 +25,7 @@ public class UsuarioFragment extends Fragment {
     private TextView viewNombre;
     private TextView viewOrganizacion;
     private Usuario user;
+    private Button btnEditarPerfil;
 
     public UsuarioFragment() {
         // Required empty public constructor
@@ -48,9 +50,12 @@ public class UsuarioFragment extends Fragment {
         viewCorreo = myInflatedView.findViewById(R.id.textCorreo);
         viewNombre = myInflatedView.findViewById(R.id.textNombre);
         viewOrganizacion = myInflatedView.findViewById(R.id.textOrganizacion);
+        btnEditarPerfil = myInflatedView.findViewById(R.id.btnEditarPerfil);
+
         viewCorreo.setText(user.getCorreo());
         viewNombre.setText(user.getNombre());
         viewOrganizacion.setText(user.getOrganizacion().getNombre());
+
         return myInflatedView;
     }
 }
