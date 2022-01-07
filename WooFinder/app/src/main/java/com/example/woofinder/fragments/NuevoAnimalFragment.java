@@ -1,8 +1,12 @@
 package com.example.woofinder.fragments;
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.clases.Animal;
 import com.example.woofinder.clases.SingletonPoint;
@@ -73,12 +78,8 @@ public class NuevoAnimalFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //enlazarControles();
     }
 
-    private void enlazarControles() {
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -104,6 +105,8 @@ public class NuevoAnimalFragment extends Fragment {
                     Animal a = new Animal(getTxtNombreAnimalString(),t, g, getTxtTipoAnimalString());
                     Toast.makeText(getActivity(),
                             "Animal creado exitosamente", Toast.LENGTH_LONG).show();
+
+                    ((MainActivity) getActivity()).loadFragment(new ListaAnimalFragment());
                 }
 
             }
