@@ -29,6 +29,7 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+        /*
         this.btnPrueba = findViewById(R.id.btnPrueba);
         this.btnPrueba.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,8 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+
+         */
         this.btnLogin = findViewById(R.id.buttonLogin);
         this.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.woofinder.InitialActivity;
+import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
+import com.example.woofinder.RegistroActivity;
 import com.example.woofinder.clases.SingletonDataBase;
 import com.example.woofinder.clases.SingletonUsuario;
 import com.example.woofinder.clases.Usuario;
@@ -55,6 +57,12 @@ public class UsuarioFragment extends Fragment {
         viewCorreo.setText(user.getCorreo());
         viewNombre.setText(user.getNombre());
         viewOrganizacion.setText(user.getOrganizacion().getNombre());
+        btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).loadFragment(new EditarUsuarioFragment());
+            }
+        });
 
         return myInflatedView;
     }
