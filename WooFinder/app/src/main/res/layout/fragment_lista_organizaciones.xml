@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="16dp"
-        android:text="Selecciona la organización"
+        android:text="@string/selecciona_organizacion"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -197,9 +197,19 @@ public class ListaAnimalFragment extends Fragment  {
                         System.out.println("clicks:"+i);
                         if(i > 1){
                             marker.setTag(0);
+                            /*
+                            ESTO FUNCIONA, PERO SOLO MUESTRA LAS COORDENADAS:
+
                             String uri = String.format(Locale.ENGLISH, "geo:%f,%f", marker.getPosition().latitude, marker.getPosition().longitude);
                             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                             startActivity(intent);
+                             */
+
+                            Uri gmmIntentUri = Uri.parse("google.navigation:q=" +marker.getPosition().latitude+","
+                                            +marker.getPosition().longitude);
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                            mapIntent.setPackage("com.google.android.apps.maps");
+                            startActivity(mapIntent);
                         }
                         i = i + 1;
                         marker.setTag(i);

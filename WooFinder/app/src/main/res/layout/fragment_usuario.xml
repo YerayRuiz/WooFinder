@@ -34,7 +34,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="192dp"
-            android:text="Organizacion"
+            android:text="@string/organizacion_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="132dp"
-            android:text="Nombre:"
+            android:text="@string/nombre_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +52,7 @@
             android:id="@+id/btnEditarPerfil"
             android:layout_width="323dp"
             android:layout_height="48dp"
-            android:text="EDITAR PERFIL"
+            android:text="@string/editar_perfil"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="72dp"
-            android:text="Correo:"
+            android:text="@string/correo_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,7 +75,7 @@
             android:layout_height="32dp"
             android:layout_marginStart="124dp"
             android:layout_marginTop="16dp"
-            android:text="INFORMACIÓN USUARIO"
+            android:text="@string/info_usuario"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
