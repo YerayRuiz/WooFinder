@@ -118,6 +118,14 @@ public class OrganizacionFragment extends Fragment {
             }
         });
 
+        this.btnEditarPerfil = v.findViewById(R.id.btnActualizarOrg);
+        this.btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((OrganizacionActivity) getActivity()).loadFragment(EditarOrganizacionFragment.newInstance());
+            }
+        });
+
         return v;
     }
 }

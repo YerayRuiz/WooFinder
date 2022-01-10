@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonDataBase;
+import com.example.woofinder.clases.SingletonOrganizacion;
 import com.example.woofinder.clases.SingletonUsuario;
 import com.example.woofinder.clases.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,14 +24,13 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginOrganizacionActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private CollectionReference usuarioCollection;
@@ -45,10 +44,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_organizacion);
 
         db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
-        usuarioCollection = db.collection("Usuario");
         organizacionCollection = db.collection("Organizacion");
 
         enlazarControles();
@@ -65,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = tPassword.getText().toString();
 
         if (validarEmail(email)){
-            usuarioCollection.whereEqualTo("correo", email)
+            organizacionCollection.whereEqualTo("correo", email)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -76,38 +74,19 @@ public class LoginActivity extends AppCompatActivity {
                                 if (listaDoc.size() > 0){
                                     DocumentSnapshot document = listaDoc.get(0);
                                     Map<String, Object> map = document.getData();
-                                    String pwdUsuario = map.get("password").toString();
+                                    String pwdOrganizacion = map.get("password").toString();
 
-                                    if (password.equals(pwdUsuario)) {   //Inicia sesion
-                                        Usuario user = new Usuario();
-                                        user.setId(document.getId());
-                                        user.setCorreo(map.get("correo").toString());
-                                        user.setNombre(map.get("nombre").toString());
-                                        user.setPassword(map.get("password").toString());
-                                        DocumentReference orgRef = (DocumentReference) map.get("organizacion");
-                                        orgRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                            @Override
-                                            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                                Organizacion organizacion = documentSnapshot.toObject(Organizacion.class);
-                                                organizacion.setId(documentSnapshot.getId());
-                                                user.setOrganizacion(organizacion);
+                                    if (password.equals(pwdOrganizacion)) {   //Inicia sesion
+                                        Organizacion org = document.toObject(Organizacion.class);
+                                        org.setId(document.getId());
 
-                                                Toast.makeText(getBaseContext(),
-                                                        "Usuario inicia sesión con éxito", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getBaseContext(), "Organizacion inicia sesión con éxito", Toast.LENGTH_LONG).show();
 
-                                                SingletonUsuario.getInstance().put("USUARIO", user);
+                                        SingletonOrganizacion.getInstance().put("ORGANIZACION", org);
 
-                                                if (user.getNombre().equals("")){
-                                                    //Para terminar de completar los datos
-                                                    Intent i = new Intent(getApplicationContext(),CompletarUsuarioActivity.class);
-                                                    startActivity(i);
-                                                } else {
-                                                    //Para irse a MainActivity
-                                                    Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                                                    startActivity(i);
-                                                }
-                                            }
-                                        });
+                                        // Para irse a MainActivity
+                                        Intent i = new Intent(getApplicationContext(),OrganizacionActivity.class);
+                                        startActivity(i);
                                     } else {
                                         tPassword.setError("Contraseña incorrecta");
                                     }

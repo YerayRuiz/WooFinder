@@ -58,16 +58,7 @@ public class InicioActivity extends AppCompatActivity {
         this.btnLoginOrganizacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Organizacion org = new Organizacion();
-                org.setCif("3452");
-                org.setNombre("xuxos sin fronteras");
-                org.setCorreo("xuxos@gmail.com");
-                org.setId("cVzmV9H0OVedT71nkDJV");
-                org.setPassword("xuxito");
-
-                SingletonOrganizacion.getInstance().put("ORGANIZACION", org);
-
-                Intent i = new Intent(getApplicationContext(),OrganizacionActivity.class);
+                Intent i = new Intent(getApplicationContext(),LoginOrganizacionActivity.class);
                 startActivity(i);
             }
         });

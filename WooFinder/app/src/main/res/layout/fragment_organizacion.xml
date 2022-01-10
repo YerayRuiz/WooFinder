@@ -111,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <Button
-        android:id="@+id/btnEditarOrg"
+        android:id="@+id/btnActualizarOrg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -127,6 +127,6 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="44dp"
         android:text="VER SOLICITUDES"
-        app:layout_constraintStart_toEndOf="@+id/btnEditarOrg"
+        app:layout_constraintStart_toEndOf="@+id/btnActualizarOrg"
         app:layout_constraintTop_toBottomOf="@+id/listEquipo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
