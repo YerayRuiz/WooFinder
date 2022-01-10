@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
@@ -71,6 +72,7 @@ public class EditarUsuarioFragment extends Fragment {
                     String correo = inputCorreo.getText().toString();
                     user.updateUsuario(correo, nombre, user.getOrganizacion(), pwd1);
                     ((MainActivity) getActivity()).loadFragment(new UsuarioFragment());
+                    Toast.makeText(getActivity() ,"Se ha actualizado el perfil correctamente", Toast.LENGTH_LONG).show();
                 } else {
                     inputPassword.setError("Las contraseñas no coinciden");
                 }
