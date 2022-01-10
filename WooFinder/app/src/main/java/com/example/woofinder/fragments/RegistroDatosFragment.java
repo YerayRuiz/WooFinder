@@ -80,7 +80,7 @@ public class RegistroDatosFragment extends Fragment {
 
                 //Falta hacer el intent para irse a inicio, que de momento no nos lleva
                 Intent i = new Intent(getActivity(), MainActivity.class);
-                getActivity().startActivity(i);
+                startActivity(i);
             }
         }
     };

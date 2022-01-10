@@ -7,40 +7,53 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="409dp"
-        android:layout_height="587dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="1dp">
+        android:layout_width="414dp"
+        android:layout_height="521dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView"
-            android:name="com.example.woofinder.fragments.MapsFragment"
+            android:id="@+id/fragmentContainerView5"
+            android:name="com.example.woofinder.fragments.NuevoAnimalFragmentMapa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
     </FrameLayout>
 
-    <Button
-        android:id="@+id/btnCreateAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="624dp"
-        android:text="Animal"
+    <EditText
+        android:id="@+id/txtnameAnimal2"
+        android:layout_width="195dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="@string/descripcion_animal"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
     <EditText
-        android:id="@+id/txtDescripcionAnimal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="624dp"
+        android:id="@+id/txtTypeAnimal2"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="40dp"
         android:ems="10"
+        android:hint="@string/tipo_animal"
         android:inputType="textPersonName"
-        android:text="Descripcion Animal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtnameAnimal2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnNuevoAnimal2"
+        android:layout_width="113dp"
+        android:layout_height="89dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/nuevo_animal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

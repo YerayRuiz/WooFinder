@@ -51,5 +51,23 @@
     <string name="info_usuario">Información del usuario </string>
     <string name="editar_perfil">Editar perfil </string>
 
+    <!-- STRINGS PARA LOGIN-->
+    <string name="login">Login </string>
+    <string name="usuario_login">Usuario </string>
+    <string name="contrasenya_login">Contraseña </string>
+    <string name="entrar_login">Entrar </string>
+    <string name="registrar_login">¿No tiene cuenta?
+        Regístrese pinchando aquí </string>
+
+    <!-- STRINGS PARA INICIO-->
+    <string name="no_login">Continuar sin iniciar sesión </string>
+    <string name="welcome_woofinder">Bienvenido a WooFinder! </string>
+    <string name="iniciar_sesion_inicio">Iniciar sesión </string>
+
+    <!-- STRINGS PARA NAVBAR-->
+    <string name="lista_anuncios">Lista anuncios </string>
+    <string name="nuevo_anuncio">Nuevo anuncio </string>
+    <string name="perfil_anuncio">Perfil </string>
+
 
 </resources>

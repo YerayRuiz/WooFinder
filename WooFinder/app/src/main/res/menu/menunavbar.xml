@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/listaAnimalFragment"
-        android:title="Lista Anuncios"
-        android:icon="@drawable/ic_list" />
+        android:icon="@drawable/ic_list"
+        android:title="@string/lista_animales" />
     <item
         android:id="@+id/nuevoAnimalFragment"
-        android:title="Nuevo Anuncio"
-        android:icon="@drawable/ic_nuevo" />
+        android:icon="@drawable/ic_nuevo"
+        android:title="@string/nuevo_anuncio" />
     <item
         android:id="@+id/usuarioFragment"
-        android:title="Perfil"
-        android:icon="@drawable/ic_person" />
+        android:icon="@drawable/ic_person"
+        android:title="@string/perfil_anuncio" />
 
 </menu>

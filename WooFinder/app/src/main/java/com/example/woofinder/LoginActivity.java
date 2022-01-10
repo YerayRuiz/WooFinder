@@ -98,6 +98,10 @@ public class LoginActivity extends AppCompatActivity {
                                                         "Usuario inicia sesión con éxito", Toast.LENGTH_LONG).show();
 
                                                 SingletonUsuario.getInstance().put("USUARIO", user);
+
+                                                //Para irse a MainActivity
+                                                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                                                startActivity(i);
                                             }
                                         });
                                     } else {

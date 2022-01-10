@@ -26,7 +26,7 @@ public class OrganizacionActivity extends AppCompatActivity {
         this.btnUpdateOrganizacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                organizacion.updateOrganizacion("2341", "chuchos@gmail.com", "chuchos sin fronteras");
+                organizacion.updateOrganizacion("2341", "chuchos@gmail.com", "chuchos sin fronteras", "xuxitos");
             }
         });
 

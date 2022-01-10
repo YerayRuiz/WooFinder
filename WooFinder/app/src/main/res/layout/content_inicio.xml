@@ -5,54 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="220dp"
-        android:layout_height="68dp"
-        android:foregroundGravity="center"
-        android:text="INICIAR SESIÓN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.321" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="30dp">
 
-    <Button
-        android:id="@+id/btnMain"
-        android:layout_width="226dp"
-        android:layout_height="57dp"
-        android:foregroundGravity="center"
-        android:text="CONTINUAR SIN INICIAR SESIÓN"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.514" />
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="321dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="68dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="INICIAR SESIÓN COMO USUARIO"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMain" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Bienvenido a WooFinder!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnMain"
+            android:layout_width="321dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="40dp"
+            android:foregroundGravity="center|center_horizontal"
+            android:text="CONTINUAR SIN INICIAR SESIÓN"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="60dp"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
-        app:layout_constraintVertical_bias="0.054"
-        app:srcCompat="@drawable/logowoofinder" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="56dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Bienvenido a WooFinder!"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginOrganizacion"
+            app:srcCompat="@drawable/logowoofinder" />
+
+        <Button
+            android:id="@+id/btnLoginOrganizacion"
+            android:layout_width="321dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="68dp"
+            android:gravity="center|center_horizontal"
+            android:text="INICIAR SESIÓN COMO ORGANIZACIÓN"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
