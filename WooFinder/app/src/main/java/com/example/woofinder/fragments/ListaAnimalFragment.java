@@ -221,14 +221,7 @@ public class ListaAnimalFragment extends Fragment  {
             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng point) {
-                    /*
-                    pnt=point;
-                    googleMap.clear();
-                    MarkerOptions marker = new MarkerOptions().position(new LatLng(point.latitude, point.longitude)).title("New Marker");
-                    googleMap.addMarker(marker);
-                    AddAnimalActivity.setPoint(point);
 
-                     */
 
                 }
             });
@@ -252,31 +245,6 @@ public class ListaAnimalFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*
-        db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
-        animalCollection = db.collection("Animal");
-
-        // Esto es la lista de animales
-        animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                List<Animal> list = new ArrayList<>();
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document : task.getResult()) {
-                        Animal animal = document.toObject(Animal.class);
-                        animal.setId(document.getId());
-                        list.add(animal);
-                    }
-                    ListView listaAnimales = (ListView) getView().findViewById(R.id.listaAnimales);
-                    AnimalAdapter animalAdapter = new AnimalAdapter(getContext(), list);
-                    listaAnimales.setAdapter(animalAdapter);
-
-                } else {
-                    Log.d("ListaAnimalFragment", "Error getting documents: ", task.getException());
-                }
-            }
-        });
-         */
 
     }
 
@@ -288,7 +256,7 @@ public class ListaAnimalFragment extends Fragment  {
                              @Nullable Bundle savedInstanceState) {
         this.mPermissionResult.launch(Manifest.permission.ACCESS_COARSE_LOCATION);
         this.mPermissionResult.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-
+        Toast.makeText(getActivity(),"Doble click en icono de perro para abrirlo en Maps", Toast.LENGTH_LONG).show();
 
         return inflater.inflate(com.example.woofinder.R.layout.fragment_maps, container, false);
     }
