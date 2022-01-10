@@ -24,7 +24,7 @@ public class InicioActivity extends AppCompatActivity {
         this.btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                Intent i = new Intent(getApplicationContext(),AddAnimalActivity.class);
                 startActivity(i);
             }
         });
