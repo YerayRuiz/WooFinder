@@ -106,7 +106,7 @@ public class MapsFragment extends Fragment {
                         googleMap.clear();
                         MarkerOptions marker = new MarkerOptions().position(new LatLng(point.latitude, point.longitude)).title("New Marker");
                         googleMap.addMarker(marker);
-                        AddAnimalActivity.setPoint(point);
+                        //AddAnimalActivity.setPoint(point);
 
                 }
             });

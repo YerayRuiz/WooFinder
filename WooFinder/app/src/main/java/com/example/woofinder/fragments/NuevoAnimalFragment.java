@@ -106,6 +106,7 @@ public class NuevoAnimalFragment extends Fragment {
                     Toast.makeText(getActivity(),
                             "Animal creado exitosamente", Toast.LENGTH_LONG).show();
 
+                    if(getActivity().getClass().equals(MainActivity.class))
                     ((MainActivity) getActivity()).loadFragment(new ListaAnimalFragment());
                 }
 
