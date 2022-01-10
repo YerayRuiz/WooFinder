@@ -21,7 +21,7 @@ import java.util.Date;
 
 public class AddAnimalActivity extends AppCompatActivity {
 
-    
+
     private Button btnNuevoAnimal;
     private EditText txtNombreAnimal;
     private EditText txtTipoAnimal;
