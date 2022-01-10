@@ -37,6 +37,7 @@ public class Organizacion implements Serializable {
     private String cif;
     private String correo;
     private String nombre;
+    private String password;
 
     public Organizacion(){
     }
@@ -46,6 +47,7 @@ public class Organizacion implements Serializable {
         data.put("cif", cif);
         data.put("correo", correo);
         data.put("nombre", nombre);
+        data.put("password", password);
 
         DocumentReference newRef = db.collection("Organizacion").document();
         newRef.set(data);
@@ -54,6 +56,7 @@ public class Organizacion implements Serializable {
         this.cif = cif;
         this.correo = correo;
         this.nombre = nombre;
+        this.password = password;
     }
 
     public String getId() {
@@ -88,6 +91,14 @@ public class Organizacion implements Serializable {
         this.nombre = nombre;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     /*
     @Override
     public String toString() {
@@ -100,17 +111,19 @@ public class Organizacion implements Serializable {
     }
     */
 
-    public void updateOrganizacion(String cif, String correo, String nombre){
+    public void updateOrganizacion(String cif, String correo, String nombre, String password){
         Map<String, Object> organizacion = new HashMap<>();
         organizacion.put("cif", cif);
         organizacion.put("correo", correo);
         organizacion.put("nombre", nombre);
+        organizacion.put("password", password);
 
         organizacionCollection.document(this.id).set(organizacion);
 
         this.cif = cif;
         this.correo = correo;
         this.nombre = nombre;
+        this.password = password;
     }
 
     public void deleteOrganizacion(){
@@ -119,16 +132,17 @@ public class Organizacion implements Serializable {
         this.cif = null;
         this.correo = null;
         this.nombre = null;
+        this.password = null;
     }
 
     @Override
     public String toString() {
         return "Organizacion{" +
-                "path='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", cif='" + cif + '\'' +
                 ", correo='" + correo + '\'' +
                 ", nombre='" + nombre + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
-
 }

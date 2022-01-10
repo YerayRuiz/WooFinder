@@ -57,7 +57,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintVertical_bias="0.703" />
+            app:layout_constraintVertical_bias="0.171" />
 
         <TextView
             android:id="@+id/textView2"
@@ -97,5 +97,16 @@
             android:layout_marginTop="72dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnDeletePerfil"
+            android:layout_width="323dp"
+            android:layout_height="48dp"
+            android:text="BORRAR PERFIL"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEditarPerfil"
+            app:layout_constraintVertical_bias="0.255" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
