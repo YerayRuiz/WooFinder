@@ -17,7 +17,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="156dp"
             android:layout_marginTop="49dp"
-            android:text="LISTA ANIMALES" />
+            android:text="@string/lista_animales" />
 
         <ListView
             android:id="@+id/listaAnimales"

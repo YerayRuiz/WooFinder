@@ -31,8 +31,16 @@
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/activity_prueba.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/content_add_animal.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/content_prueba.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_editar_usuario.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_lista_animal.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_lista_organizaciones.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
-        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_nuevo_animal.xml" value="0.1" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_nuevo_animal.xml" value="0.264" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_nuevo_animal_mapa.xml" value="0.17844202898550723" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_registro_datos.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/fragment_usuario.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/item_animal.xml" value="0.2164855072463768" />
+        <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/layout/item_organizacion.xml" value="0.2164855072463768" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/david/OneDrive/Escritorio/UNIVERSIDAD/CUARTO/EMPOTRADOS/ANDROID/WooFinder/WooFinder/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/yeray/Documents/Android/PROYECTO/WooFinder/app/src/main/res/layout/activity_main.xml" value="0.14270833333333333" />

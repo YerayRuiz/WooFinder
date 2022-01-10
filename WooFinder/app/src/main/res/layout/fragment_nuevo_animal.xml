@@ -34,7 +34,7 @@
             android:layout_height="89dp"
             android:layout_marginStart="260dp"
             android:layout_marginTop="32dp"
-            android:text="Nuevo Animal"
+            android:text="@string/nuevo_animal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
@@ -45,7 +45,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="Descripcion Animal"
+            android:hint="@string/descripcion_animal"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
@@ -56,7 +56,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="24dp"
             android:ems="10"
-            android:hint="Tipo Animal"
+            android:hint="@string/tipo_animal"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,10 +1,12 @@
 package com.example.woofinder.fragments;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -20,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.woofinder.AddAnimalActivity;
 import com.example.woofinder.AnimalAdapter;
@@ -43,6 +46,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -54,8 +58,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class ListaAnimalFragment extends Fragment {
+public class ListaAnimalFragment extends Fragment  {
 
     private FirebaseFirestore db;
     private CollectionReference animalCollection;
@@ -76,7 +81,7 @@ public class ListaAnimalFragment extends Fragment {
             });
 
 
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+    private OnMapReadyCallback callback = new OnMapReadyCallback()  {
         private LatLng pnt;
         private FusedLocationProviderClient client;
 
@@ -165,7 +170,8 @@ public class ListaAnimalFragment extends Fragment {
                                                 MarkerOptions marker = new MarkerOptions().position(new LatLng(a.getLocalizacion().getLatitude(),
                                                         a.getLocalizacion().getLongitude())).title(a.getDescripcion());
                                                 marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.perroicon50));
-                                                googleMap.addMarker(marker);
+                                                Marker m =googleMap.addMarker(marker);
+                                                m.setTag(0);
                                             }
 
                                         } else {
@@ -180,6 +186,38 @@ public class ListaAnimalFragment extends Fragment {
 
             }
 
+            googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(@NonNull Marker marker) {
+                    Integer i = (Integer) marker.getTag();
+                    System.out.println("clicks valen:"+i);
+                    System.out.println("entra en onClick");
+                    // Check if a click count was set, then display the click count.
+                    if (i != null) {
+                        System.out.println("clicks:"+i);
+                        if(i > 1){
+                            marker.setTag(0);
+                            /*
+                            ESTO FUNCIONA, PERO SOLO MUESTRA LAS COORDENADAS:
+
+                            String uri = String.format(Locale.ENGLISH, "geo:%f,%f", marker.getPosition().latitude, marker.getPosition().longitude);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                            startActivity(intent);
+                             */
+
+                            Uri gmmIntentUri = Uri.parse("google.navigation:q=" +marker.getPosition().latitude+","
+                                            +marker.getPosition().longitude);
+                            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                            mapIntent.setPackage("com.google.android.apps.maps");
+                            startActivity(mapIntent);
+                        }
+                        i = i + 1;
+                        marker.setTag(i);
+                    }
+
+                    return false;
+                }
+            });
             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng point) {
@@ -194,8 +232,11 @@ public class ListaAnimalFragment extends Fragment {
 
                 }
             });
+
         }
+
     };
+
 
 
     public ListaAnimalFragment() {
@@ -261,4 +302,7 @@ public class ListaAnimalFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
+
+
+
 }

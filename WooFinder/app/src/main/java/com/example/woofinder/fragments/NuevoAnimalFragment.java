@@ -84,7 +84,7 @@ public class NuevoAnimalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View myInflatedView = inflater.inflate(R.layout.fragment_nuevo_animal, container, false);
 
         this.btnNuevoAnimal=myInflatedView.findViewById(R.id.btnNuevoAnimal);
