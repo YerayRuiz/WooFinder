@@ -92,7 +92,7 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
                 try {
                     Message message = new MimeMessage(session);
                     message.setFrom(new InternetAddress(username));
-                    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("yeray.r7@gmail.com".trim()));
+                    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getCorreo().trim()));
                     message.setSubject("Solicitud aceptada en Woofinder".trim());
                     message.setText(mensaje.trim());
 
