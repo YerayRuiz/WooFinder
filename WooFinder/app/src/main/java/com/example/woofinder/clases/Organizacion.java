@@ -42,7 +42,7 @@ public class Organizacion implements Serializable {
     public Organizacion(){
     }
 
-    public Organizacion(String cif, String correo, String nombre) {
+    public Organizacion(String cif, String correo, String nombre, String password) {
         Map<String, Object> data = new HashMap<>();
         data.put("cif", cif);
         data.put("correo", correo);

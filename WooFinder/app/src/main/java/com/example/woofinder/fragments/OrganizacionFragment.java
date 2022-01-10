@@ -1,20 +1,26 @@
 package com.example.woofinder.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.woofinder.InitialActivity;
+import com.example.woofinder.LoginActivity;
+import com.example.woofinder.OrganizacionActivity;
 import com.example.woofinder.OrganizacionAdapter;
 import com.example.woofinder.R;
+import com.example.woofinder.RegistroActivity;
 import com.example.woofinder.UsuarioAdapter;
 import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonDataBase;
@@ -23,6 +29,7 @@ import com.example.woofinder.clases.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -37,6 +44,8 @@ public class OrganizacionFragment extends Fragment {
     private FirebaseFirestore db;
     private CollectionReference usuarioCollection;
     private CollectionReference organizacionCollection;
+    private Button btnEditarPerfil;
+    private Button btnVerSolicitudes;
 
     public OrganizacionFragment() {
     }
@@ -70,9 +79,9 @@ public class OrganizacionFragment extends Fragment {
         txtCorreo.setText(org.getCorreo());
         txtNombre.setText(org.getNombre());
 
-        String path = organizacionCollection.document(org.getId()).getPath();
+        DocumentReference ref = organizacionCollection.document(org.getId());
 
-        usuarioCollection.whereEqualTo("organizacion", path)
+        usuarioCollection.whereEqualTo("organizacion", ref)
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -80,21 +89,32 @@ public class OrganizacionFragment extends Fragment {
                 if(task.isSuccessful()){
                     for(QueryDocumentSnapshot document : task.getResult()) {
                         Map<String, Object> datos = document.getData();
+                        System.out.println(datos);
                         Usuario usuario = new Usuario();
                         usuario.setId(document.getId());
                         usuario.setNombre(datos.get("nombre").toString());
-                        usuario.setCorreo(datos.get("correo").toString());
-                        usuario.setOrganizacion(org);
-                        usuario.setPassword(datos.get("password").toString());
-                        list.add(usuario);
+                        if (!usuario.getNombre().equals("")) {
+                            usuario.setCorreo(datos.get("correo").toString());
+                            usuario.setOrganizacion(org);
+                            usuario.setPassword(datos.get("password").toString());
+                            list.add(usuario);
+                        }
                     }
                     ListView listaUsuario = (ListView) v.findViewById(R.id.listEquipo);
                     UsuarioAdapter usuarioAdapter = new UsuarioAdapter(getContext(), list);
                     listaUsuario.setAdapter(usuarioAdapter);
 
                 } else {
-                    Log.d("RegistroActivity", "Error getting documents: ", task.getException());
+                    Log.d("OrganizacionFragment", "Error getting documents: ", task.getException());
                 }
+            }
+        });
+
+        this.btnVerSolicitudes = v.findViewById(R.id.btnVerSolicitudes);
+        this.btnVerSolicitudes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((OrganizacionActivity) getActivity()).loadFragment(SolicitudesFragment.newInstance());
             }
         });
 
