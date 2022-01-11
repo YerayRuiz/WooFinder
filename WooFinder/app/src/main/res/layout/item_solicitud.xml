@@ -26,7 +26,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@color/ic_launcher_woof_background"
-        android:text="Aceptar"
+        android:text="@string/btn_aceptar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/solicitud_correo" />
 
@@ -37,7 +37,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_light"
-        android:text="Eliminar"
+        android:text="@string/btn_eliminar"
         app:layout_constraintStart_toEndOf="@+id/button_aceptar"
         app:layout_constraintTop_toBottomOf="@+id/solicitud_correo" />
 

@@ -115,8 +115,8 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
 
                 solicitud.deleteSolicitud();
 
-                Toast.makeText(getContext(), "Solicitud aceptada con éxito. Se enviará un email a "+
-                        user.getCorreo() + " notificándole.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getContext().getString(R.string.solicitud_toast_aceptar_1)+
+                        user.getCorreo() + getContext().getString(R.string.solicitud_toast_aceptar_2), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -128,7 +128,7 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
 
                 solicitud.deleteSolicitud();
 
-                Toast.makeText(getContext(), "Solicitud eliminada con éxito", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getContext().getString(R.string.solicitud_toast_eliminar), Toast.LENGTH_LONG).show();
             }
         });
 

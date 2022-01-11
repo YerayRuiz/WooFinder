@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 user.setOrganizacion(organizacion);
 
                                                 Toast.makeText(getBaseContext(),
-                                                        "Usuario inicia sesión con éxito", Toast.LENGTH_LONG).show();
+                                                        getString(R.string.usuario_inicio_sesion), Toast.LENGTH_LONG).show();
 
                                                 SingletonUsuario.getInstance().put("USUARIO", user);
 
@@ -109,18 +109,18 @@ public class LoginActivity extends AppCompatActivity {
                                             }
                                         });
                                     } else {
-                                        tPassword.setError("Contraseña incorrecta");
+                                        tPassword.setError(getString(R.string.contrasenya_incorrecta));
                                     }
                                 } else {
-                                    tEmail.setError("Email no encontrado");
+                                    tEmail.setError(getString(R.string.email_no_encontrado));
                                 }
                             } else {
-                                tEmail.setError("Email no encontrado");
+                                tEmail.setError(getString(R.string.email_no_encontrado));
                             }
                         }
                     });
         } else {    //Email introducido no valido
-            tEmail.setError("Email introducido no válido");
+            tEmail.setError(getString(R.string.email_no_valido));
         }
     }
 
