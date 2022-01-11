@@ -68,6 +68,7 @@
     <string name="lista_anuncios">Lista anuncios </string>
     <string name="nuevo_anuncio">Nuevo anuncio </string>
     <string name="perfil_anuncio">Perfil </string>
+    <string name="perfil_organizacion">Organizacion</string>
 
 
 </resources>

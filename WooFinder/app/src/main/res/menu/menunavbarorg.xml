@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/listaAnimalFragment"
+        android:icon="@drawable/ic_list"
+        android:title="@string/lista_animales" />
+    <item
+        android:id="@+id/nuevoAnimalFragment"
+        android:icon="@drawable/ic_nuevo"
+        android:title="@string/nuevo_anuncio" />
+    <item
+        android:id="@+id/organizacionFragment"
+        android:icon="@drawable/ic_organizacion"
+        android:title="@string/perfil_organizacion" />
+
+</menu>

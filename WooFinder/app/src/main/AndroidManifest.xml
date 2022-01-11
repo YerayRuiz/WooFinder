@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WooFinder.NoActionBar">
         <activity
+            android:name=".OrganizacionActivity"
+            android:exported="false" />
+        <activity
             android:name=".CompletarUsuarioActivity"
             android:exported="false" />
         <activity
@@ -61,9 +64,6 @@
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OrganizacionActivity"
             android:exported="false" />
         <activity
             android:name=".AddAnimalActivity"
