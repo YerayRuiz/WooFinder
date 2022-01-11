@@ -120,46 +120,30 @@ public class NuevoAnimalFragmentMapa extends Fragment {
                     public void onSuccess(Location location) {
                         // Got last known location. In some rare situations this can be null.
 
-                        pnt=new LatLng(location.getLatitude(),location.getLongitude());
+                        CameraPosition camPos;
+                        if(location != null){
+                            pnt=new LatLng(location.getLatitude(),location.getLongitude());
 
-                        CameraPosition camPos = new CameraPosition.Builder()
-                                .target(new LatLng(location.getLatitude(), location.getLongitude()))
-                                .zoom(18)
-                                .bearing(location.getBearing())
-                                .tilt(70)
-                                .build();
+                            camPos = new CameraPosition.Builder()
+                                    .target(new LatLng(location.getLatitude(), location.getLongitude()))
+                                    .zoom(18)
+                                    .bearing(location.getBearing())
+                                    .tilt(70)
+                                    .build();
+
+                        }
+                        else{
+                            camPos = new CameraPosition.Builder()
+                                    .zoom(18)
+                                    .bearing(location.getBearing())
+                                    .tilt(70)
+                                    .build();
+                        }
                         CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
                         googleMap.animateCamera(camUpd3);
 
                         db = SingletonDataBase.getInstance().get(InitialActivity.SHARED_DATA_KEY);
                         animalCollection = db.collection("Animal");
-/*
-                        animalCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                List<Animal> list = new ArrayList<>();
-                                if(task.isSuccessful()){
-                                    for(QueryDocumentSnapshot document : task.getResult()) {
-                                        Animal animal = document.toObject(Animal.class);
-                                        animal.setId(document.getId());
-                                        list.add(animal);
-                                    }
-                                    googleMap.clear();
-                                    for(Animal a: list){
-                                        MarkerOptions marker = new MarkerOptions().position(new LatLng(a.getLocalizacion().getLatitude(),
-                                                a.getLocalizacion().getLongitude())).title(a.getDescripcion());
-                                        marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.perroicon50));
-                                        googleMap.addMarker(marker);
-                                    }
-
-                                } else {
-                                    Log.d("ListaAnimalFragment", "Error getting documents: ", task.getException());
-                                }
-                            }
-                        });
-
- */
-
                     }
                 });
 

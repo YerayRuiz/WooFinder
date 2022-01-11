@@ -29,7 +29,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="111dp"
             android:layout_marginTop="81dp"
-            android:text="@string/delete_usuario" />
+            android:text="@string/" />
 
         <Button
             android:id="@+id/btnListarUsuario"
