@@ -139,15 +139,25 @@ public class ListaAnimalFragment extends Fragment  {
                             @Override
                             public void onSuccess(Location location) {
                                 // Got last known location. In some rare situations this can be null.
+                                CameraPosition camPos;
+                                if(location != null){
+                                    pnt=new LatLng(location.getLatitude(),location.getLongitude());
 
-                                pnt=new LatLng(location.getLatitude(),location.getLongitude());
+                                     camPos = new CameraPosition.Builder()
+                                            .target(new LatLng(location.getLatitude(), location.getLongitude()))
+                                            .zoom(18)
+                                            .bearing(location.getBearing())
+                                            .tilt(70)
+                                            .build();
 
-                                CameraPosition camPos = new CameraPosition.Builder()
-                                        .target(new LatLng(location.getLatitude(), location.getLongitude()))
-                                        .zoom(18)
-                                        .bearing(location.getBearing())
-                                        .tilt(70)
-                                        .build();
+                                }
+                                else{
+                                     camPos = new CameraPosition.Builder()
+                                            .zoom(18)
+                                            .bearing(location.getBearing())
+                                            .tilt(70)
+                                            .build();
+                                }
                                 CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);
                                 googleMap.animateCamera(camUpd3);
 
@@ -197,13 +207,6 @@ public class ListaAnimalFragment extends Fragment  {
                         System.out.println("clicks:"+i);
                         if(i > 1){
                             marker.setTag(0);
-                            /*
-                            ESTO FUNCIONA, PERO SOLO MUESTRA LAS COORDENADAS:
-
-                            String uri = String.format(Locale.ENGLISH, "geo:%f,%f", marker.getPosition().latitude, marker.getPosition().longitude);
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                            startActivity(intent);
-                             */
 
                             Uri gmmIntentUri = Uri.parse("google.navigation:q=" +marker.getPosition().latitude+","
                                             +marker.getPosition().longitude);
