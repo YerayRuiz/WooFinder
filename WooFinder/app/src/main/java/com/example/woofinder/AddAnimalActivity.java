@@ -62,13 +62,13 @@ public class AddAnimalActivity extends AppCompatActivity {
                 LatLng point = SingletonPoint.getInstance().get("POINT");
                 if (point == null) {
                     Toast.makeText(getApplicationContext(),
-                            "Click en el mapa por favor", Toast.LENGTH_LONG).show();
+                            getString(R.string.click_map), Toast.LENGTH_LONG).show();
                 } else {
                     Timestamp t = new Timestamp(new Date());
                     GeoPoint g = new GeoPoint(point.latitude, point.longitude);
                     Animal a = new Animal(getTxtNombreAnimalString(), t, g, getTxtTipoAnimalString());
                     Toast.makeText(getApplicationContext(),
-                            "Animal creado exitosamente", Toast.LENGTH_LONG).show();
+                            getString(R.string.nuevo_animal_creado), Toast.LENGTH_LONG).show();
                     finish();
                     startActivity(getIntent());
                 }

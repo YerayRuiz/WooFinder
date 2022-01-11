@@ -98,13 +98,13 @@ public class NuevoAnimalFragment extends Fragment {
                 LatLng point = SingletonPoint.getInstance().get("POINT");
                 if(point == null){
                     Toast.makeText(getActivity(),
-                            "Click en el mapa por favor", Toast.LENGTH_LONG).show();
+                            getString(R.string.click_map), Toast.LENGTH_LONG).show();
                 }else{
                     Timestamp t = new Timestamp(new Date());
                     GeoPoint g = new GeoPoint(point.latitude, point.longitude);
                     Animal a = new Animal(getTxtNombreAnimalString(),t, g, getTxtTipoAnimalString());
                     Toast.makeText(getActivity(),
-                            "Animal creado exitosamente", Toast.LENGTH_LONG).show();
+                            getString(R.string.nuevo_animal_creado), Toast.LENGTH_LONG).show();
 
                     if(getActivity().getClass().equals(MainActivity.class))
                     ((MainActivity) getActivity()).loadFragment(new ListaAnimalFragment());

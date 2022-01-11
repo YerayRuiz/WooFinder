@@ -54,13 +54,13 @@ public class CompletarUsuarioActivity extends AppCompatActivity {
                     startActivity(i);
 
                 } else {
-                    confirmarPasswordUsuario.setError("Contraseñas no coinciden");
+                    confirmarPasswordUsuario.setError(getString(R.string.password_no_coinciden));
                 }
             } else {
-                passwordUsuario.setError("Contraseña vacía");
+                passwordUsuario.setError(getString(R.string.password_vacia));
             }
         } else {
-            nombreUsuario.setError("Nombre vacío");
+            nombreUsuario.setError(getString(R.string.nombre_vacia));
         }
     }
 }

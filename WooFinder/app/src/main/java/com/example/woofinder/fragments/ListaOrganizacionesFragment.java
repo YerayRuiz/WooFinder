@@ -11,11 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.woofinder.InitialActivity;
 import com.example.woofinder.OrganizacionAdapter;
-import com.example.woofinder.PruebaActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.RegistroActivity;
 import com.example.woofinder.clases.Organizacion;
@@ -26,8 +24,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

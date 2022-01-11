@@ -3,7 +3,6 @@ package com.example.woofinder.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,18 +14,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.woofinder.InitialActivity;
 import com.example.woofinder.LoginActivity;
 import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
-import com.example.woofinder.RegistroActivity;
-import com.example.woofinder.UsuarioActivity;
-import com.example.woofinder.clases.SingletonDataBase;
 import com.example.woofinder.clases.SingletonUsuario;
 import com.example.woofinder.clases.Usuario;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UsuarioFragment extends Fragment {
 
@@ -76,27 +68,27 @@ public class UsuarioFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("¿Desea eliminar su perfil?");
+                builder.setMessage(getString(R.string.borrar_usuario_pregunta));
 
-                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getString(R.string.btn_aceptar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         user.deleteUsuario();
                         Intent i = new Intent(getActivity(), LoginActivity.class);
                         startActivity(i);
-                        Toast.makeText(getActivity() ,"Se ha eliminado el perfil correctamente", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity() ,getString(R.string.usuario_eliminado), Toast.LENGTH_LONG).show();
                         getActivity().finish();
                     }
                 });
 
-                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.btn_cancelar), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
                 AlertDialog alert = builder.create();
-                alert.setTitle("Borrar Perfil");
+                alert.setTitle(getString(R.string.borrar_perfil));
                 alert.show();
             }
         });

@@ -1,6 +1,5 @@
 package com.example.woofinder.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,10 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.woofinder.AnimalActivity;
-import com.example.woofinder.InicioActivity;
 import com.example.woofinder.InitialActivity;
-import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonDataBase;
@@ -29,7 +25,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
@@ -89,7 +84,7 @@ public class RegistroDatosFragment extends Fragment {
         public void onClick(View view) {
             String email = inputEmail.getText().toString();
             if (!validarEmail(email)){
-                inputEmail.setError("Email no válido");
+                inputEmail.setError(getString(R.string.email_no_encontrado));
             } else {
                 usuarioCollection.whereEqualTo("correo", email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -97,7 +92,7 @@ public class RegistroDatosFragment extends Fragment {
                         if (task.isSuccessful()) {
                             List<DocumentSnapshot> lista = task.getResult().getDocuments();
                             if (lista.size() > 0){
-                                inputEmail.setError("Ya existe un usuario registrado con ese correo");
+                                inputEmail.setError(getString(R.string.usuario_ya_existe));
                             } else {
                                 solicitudCollection.whereEqualTo("correoUser", email).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
@@ -105,12 +100,11 @@ public class RegistroDatosFragment extends Fragment {
                                         if (task.isSuccessful()) {
                                             List<DocumentSnapshot> listaSol = task.getResult().getDocuments();
                                             if (listaSol.size() > 0){
-                                                inputEmail.setError("Ya existe una solicitud creada con ese correo");
+                                                inputEmail.setError(getString(R.string.solicitud_ya_existe));
                                             } else {
                                                 Solicitud solicitud = new Solicitud(email, org);
 
-                                                String cadena = "Solicitud de registro para el email "+email+
-                                                        " en la organizacion" + org.getNombre() + " creada con éxito";
+                                                String cadena = getString(R.string.solicitud_exito);
                                                 Toast.makeText(getContext(),cadena, Toast.LENGTH_SHORT).show();
 
                                                 //Falta hacer el intent para irse a inicio

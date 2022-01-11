@@ -68,20 +68,6 @@
         <activity
             android:name=".AddAnimalActivity"
             android:exported="false" />
-        <activity
-            android:name=".UsuarioActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AnimalActivity"
-            android:exported="false"
-            android:label="@string/title_activity_animal"
-            android:theme="@style/Theme.WooFinder.NoActionBar" />
-        <activity
-            android:name=".SolicitudActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PruebaActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

@@ -72,9 +72,9 @@ public class EditarUsuarioFragment extends Fragment {
                     String correo = inputCorreo.getText().toString();
                     user.updateUsuario(correo, nombre, user.getOrganizacion(), pwd1);
                     ((MainActivity) getActivity()).loadFragment(new UsuarioFragment());
-                    Toast.makeText(getActivity() ,"Se ha actualizado el perfil correctamente", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), getString(R.string.actualizado_usuario_exito), Toast.LENGTH_LONG).show();
                 } else {
-                    inputPassword.setError("Las contraseñas no coinciden");
+                    inputPassword.setError(getString(R.string.password_no_coinciden));
                 }
             }
         });

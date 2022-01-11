@@ -68,10 +68,10 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
                 listaSolicitudes.remove(position);
                 solicitudAdapter.notifyDataSetChanged();
 
-                String mensaje = "Se ha aceptado su solicitud de registro en la organización "
-                        +org.getNombre()+ ". Por favor, inicie sesión con las siguientes credenciales y complete sus datos:" +
+                String mensaje = getContext().getString(R.string.solicitud_toast_credenciales_1) + " "
+                        +org.getNombre()+ getContext().getString(R.string.solicitud_toast_credenciales_2) +
                         "\nEmail: "+user.getCorreo()+
-                        "\nContraseña: "+user.getPassword();
+                        "\nPassword: "+user.getPassword();
 
                 String username = "woofinder.oficial@gmail.com";
                 String password = "Buscachuchos";

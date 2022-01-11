@@ -112,7 +112,6 @@ public class NuevoAnimalFragmentMapa extends Fragment {
             }
             else{
                 LocationServices.getFusedLocationProviderClient(getActivity()).requestLocationUpdates(mLocationRequest, mLocationCallback, null);
-                System.out.println("Entra en else");
 
                 LocationServices.getFusedLocationProviderClient(getActivity()).
                         getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {

@@ -25,9 +25,11 @@
     <string name="contrasenya_usuario">Contraseña</string>
     <string name="contrasenya_confirmar_usuario">Confirmar Contraseña</string>
     <string name="guardar_cambios_usuario">Guardar Cambios</string>
+    <string name="actualizado_usuario_exito">Se ha actualizado el perfil correctamente</string>
 
     <!-- STRINGS PARA LISTAR ANIMAL-->
     <string name="lista_animales">Lista Animales</string>
+    <string name="toast_lista_animales">Doble click en icono de perro para abrirlo en Maps</string>
 
     <!-- STRINGS PARA LISTAR ORGANIZACION-->
     <string name="selecciona_organizacion">Selecciona la organización</string>
@@ -37,6 +39,8 @@
     <string name="descripcion_animal">Descripcion del animal</string>
     <string name="tipo_animal">Tipo del animal</string>
     <string name="nuevo_animal">Nuevo animal</string>
+    <string name="click_map">Por favor, pulse en el mapa</string>
+    <string name="nuevo_animal_creado">Animal creado exitosamente</string>
 
     <!-- STRINGS PARA REGISTRO DATOS-->
     <string name="seleccion_organizacion">Organizacion</string>
@@ -48,6 +52,9 @@
     <string name="organizacion_usuario">Organización </string>
     <string name="info_usuario">Información del usuario </string>
     <string name="editar_perfil">Editar perfil </string>
+    <string name="borrar_usuario_pregunta">¿Desea eliminar su perfil? </string>
+    <string name="usuario_eliminado">Se ha eliminado el perfil correctamente </string>
+    <string name="borrar_perfil">Borrar Perfil</string>
 
     <!-- STRINGS PARA LOGIN-->
     <string name="login">Login</string>
@@ -56,6 +63,8 @@
     <string name="entrar_login">Entrar</string>
     <string name="registrar_login">¿No tiene cuenta? Regístrese pinchando aquí</string>
     <string name="usuario_inicio_sesion">Usuario inicia sesión con éxito</string>
+    <string name="usuario_ya_existe">Ya existe un usuario registrado con ese correo</string>
+    <string name="solicitud_ya_existe">Ya existe una solicitud creada con ese correo</string>
 
     <!-- STRINGS PARA INICIO-->
     <string name="no_login">Continuar sin iniciar sesión</string>
@@ -88,14 +97,20 @@
     <!-- STRINGS PARA ITEM SOLICITUD -->
     <string name="btn_aceptar">Aceptar</string>
     <string name="btn_eliminar">Eliminar</string>
+    <string name="btn_cancelar">Cancelar</string>
+
 
     <!-- STRINGS PARA SOLICITUD ADAPTER -->
+    <string name="solicitud_toast_credenciales_1">Se ha aceptado su solicitud de registro en la organización </string>
+    <string name="solicitud_toast_credenciales_2">. Por favor, inicie sesión con las siguientes credenciales y complete sus datos:</string>
     <string name="solicitud_toast_aceptar_1">Solicitud aceptada con éxito. Se enviará un email a </string>
     <string name="solicitud_toast_aceptar_2"> notificándole.</string>
     <string name="solicitud_toast_eliminar">Solicitud eliminada con éxito</string>
+    <string name="solicitud_exito">Solicitud creada con éxito</string>
 
     <!-- STRINGS PARA LOGIN ORGANIZACION ACTIVITY -->
     <string name="contrasenya_incorrecta">Contraseña incorrecta</string>
     <string name="email_no_encontrado">Email no encontrado</string>
     <string name="organizacion_inicio_sesion">Organización inicia sesión con éxito</string>
+
 </resources>

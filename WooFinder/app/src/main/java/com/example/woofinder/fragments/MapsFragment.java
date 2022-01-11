@@ -76,7 +76,6 @@ public class MapsFragment extends Fragment {
                 return;
             }
             else{
-                System.out.println("Entra en else");
                 client.getLastLocation()
                         .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
                             @Override

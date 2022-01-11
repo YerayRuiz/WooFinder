@@ -64,4 +64,17 @@
     <string name="organizacion_inicio_sesion">Organization sign in successfully</string>
     <string name="perfil_organizacion">Organization</string>
     <string name="delete_usuario" translatable="false">Delete usuario</string>
+    <string name="actualizado_usuario_exito">"Profile has been correctly updated"</string>
+    <string name="toast_lista_animales">"Double click on dog icon to open it on Google Maps"</string>
+    <string name="click_map">Please, click the map</string>
+    <string name="nuevo_animal_creado">"Animal was successfully created"</string>
+    <string name="usuario_ya_existe">"This email is currently registered"</string>
+    <string name="solicitud_ya_existe">"This email has already sent a request"</string>
+    <string name="solicitud_exito">The request was successfully created</string>
+    <string name="borrar_usuario_pregunta">"Do you want to delete your profile?" </string>
+    <string name="btn_cancelar">Cancel</string>
+    <string name="usuario_eliminado">"Profile was successfully deleted" </string>
+    <string name="borrar_perfil">Delete Profile</string>
+    <string name="solicitud_toast_credenciales_1">Your request was succesfully accepted on </string>
+    <string name="solicitud_toast_credenciales_2">. Please, login with your credentials and complete your data:</string>
 </resources>

@@ -3,8 +3,6 @@ package com.example.woofinder.fragments;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,17 +19,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.woofinder.AddAnimalActivity;
-import com.example.woofinder.AnimalAdapter;
 import com.example.woofinder.InitialActivity;
-import com.example.woofinder.OrganizacionAdapter;
-import com.example.woofinder.PruebaActivity;
 import com.example.woofinder.R;
 import com.example.woofinder.clases.Animal;
-import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonDataBase;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -58,7 +50,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ListaAnimalFragment extends Fragment  {
 
@@ -132,7 +123,6 @@ public class ListaAnimalFragment extends Fragment  {
             }
             else{
                 LocationServices.getFusedLocationProviderClient(getActivity()).requestLocationUpdates(mLocationRequest, mLocationCallback, null);
-                System.out.println("Entra en else");
 
                 LocationServices.getFusedLocationProviderClient(getActivity()).
                         getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
@@ -200,11 +190,8 @@ public class ListaAnimalFragment extends Fragment  {
                 @Override
                 public boolean onMarkerClick(@NonNull Marker marker) {
                     Integer i = (Integer) marker.getTag();
-                    System.out.println("clicks valen:"+i);
-                    System.out.println("entra en onClick");
                     // Check if a click count was set, then display the click count.
                     if (i != null) {
-                        System.out.println("clicks:"+i);
                         if(i > 1){
                             marker.setTag(0);
 
@@ -259,7 +246,7 @@ public class ListaAnimalFragment extends Fragment  {
                              @Nullable Bundle savedInstanceState) {
         this.mPermissionResult.launch(Manifest.permission.ACCESS_COARSE_LOCATION);
         this.mPermissionResult.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-        Toast.makeText(getActivity(),"Doble click en icono de perro para abrirlo en Maps", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(),getString(R.string.toast_lista_animales), Toast.LENGTH_LONG).show();
 
         return inflater.inflate(com.example.woofinder.R.layout.fragment_maps, container, false);
     }

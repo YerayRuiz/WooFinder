@@ -1,33 +1,12 @@
 package com.example.woofinder.clases;
 
-import android.nfc.Tag;
-import android.util.Log;
-import android.widget.ListView;
-
-import androidx.annotation.NonNull;
-
 import com.example.woofinder.InitialActivity;
-import com.example.woofinder.OrganizacionActivity;
-import com.example.woofinder.OrganizacionAdapter;
-import com.example.woofinder.PruebaActivity;
-import com.example.woofinder.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.GeoPoint;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Organizacion implements Serializable {
