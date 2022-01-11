@@ -61,4 +61,5 @@
     <string name="solicitud_toast_eliminar">Request deleted successfully</string>
     <string name="contrasenya_incorrecta">Incorrect password</string>
     <string name="email_no_encontrado">Email not found</string>
+    <string name="organizacion_inicio_sesion">Organization sign in successfully</string>
 </resources>
