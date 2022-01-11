@@ -63,4 +63,5 @@
     <string name="email_no_encontrado">Email not found</string>
     <string name="organizacion_inicio_sesion">Organization sign in successfully</string>
     <string name="perfil_organizacion">Organization</string>
+    <string name="delete_usuario" translatable="false">Delete usuario</string>
 </resources>
