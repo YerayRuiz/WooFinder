@@ -31,6 +31,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,8 +66,13 @@ public class ListaOrganizacionesFragment extends Fragment {
                 List<Organizacion> list = new ArrayList<>();
                 if(task.isSuccessful()){
                     for(QueryDocumentSnapshot document : task.getResult()) {
-                        Organizacion org = document.toObject(Organizacion.class);
+                        Map<String, Object> datos = document.getData();
+                        Organizacion org = new Organizacion();
                         org.setId(document.getId());
+                        org.setCif(datos.get("cif").toString());
+                        org.setCorreo(datos.get("correo").toString());
+                        org.setNombre(datos.get("nombre").toString());
+                        org.setPassword(datos.get("password").toString());
                         list.add(org);
                     }
                     ListView listaOrganizaciones = (ListView) getView().findViewById(R.id.listaOrganizaciones);

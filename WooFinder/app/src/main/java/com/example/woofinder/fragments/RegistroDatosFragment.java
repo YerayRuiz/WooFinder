@@ -114,8 +114,9 @@ public class RegistroDatosFragment extends Fragment {
                                                 Toast.makeText(getContext(),cadena, Toast.LENGTH_SHORT).show();
 
                                                 //Falta hacer el intent para irse a inicio
-                                                Intent i = new Intent(getActivity(), InitialActivity.class);
-                                                startActivity(i);
+                                                getActivity().onBackPressed();
+
+                                                Toast.makeText(getContext(),cadena, Toast.LENGTH_SHORT).show();
                                             }
                                         } else {
                                             Log.d("ERROR", "Error getting documents: ", task.getException());
