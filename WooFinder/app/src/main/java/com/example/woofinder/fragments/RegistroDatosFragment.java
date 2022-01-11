@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.woofinder.AnimalActivity;
+import com.example.woofinder.InicioActivity;
 import com.example.woofinder.InitialActivity;
 import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
@@ -112,8 +113,8 @@ public class RegistroDatosFragment extends Fragment {
                                                         " en la organizacion" + org.getNombre() + " creada con éxito";
                                                 Toast.makeText(getContext(),cadena, Toast.LENGTH_SHORT).show();
 
-                                                //Falta hacer el intent para irse a inicio, que de momento no nos lleva
-                                                Intent i = new Intent(getActivity(), MainActivity.class);
+                                                //Falta hacer el intent para irse a inicio
+                                                Intent i = new Intent(getActivity(), InitialActivity.class);
                                                 startActivity(i);
                                             }
                                         } else {

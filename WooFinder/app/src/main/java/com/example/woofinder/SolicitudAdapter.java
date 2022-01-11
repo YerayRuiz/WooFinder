@@ -3,6 +3,7 @@ package com.example.woofinder;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
             @Override
             public void onClick(View view) {
                 Random r = new Random();
-                Integer randomPassword = r.nextInt(999999);
+                Integer randomPassword = r.nextInt(999999-100000)+100000;
                 Usuario user = new Usuario(solicitud.getCorreoUser(), "", org, randomPassword.toString());
 
                 listaSolicitudes.remove(position);
@@ -115,8 +116,11 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
 
                 solicitud.deleteSolicitud();
 
-                Toast.makeText(getContext(), getContext().getString(R.string.solicitud_toast_aceptar_1)+
-                        user.getCorreo() + getContext().getString(R.string.solicitud_toast_aceptar_2), Toast.LENGTH_LONG).show();
+                Toast toast = Toast.makeText(getContext(), getContext().getString(R.string.solicitud_toast_aceptar_1)+
+                        user.getCorreo() + getContext().getString(R.string.solicitud_toast_aceptar_2), Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.TOP, 0, 0);
+                toast.show();
+
             }
         });
 

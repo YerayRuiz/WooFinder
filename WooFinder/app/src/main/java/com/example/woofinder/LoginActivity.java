@@ -128,4 +128,9 @@ public class LoginActivity extends AppCompatActivity {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         return pattern.matcher(email).matches();
     }
+
+    public void registro(View view){
+        Intent i = new Intent(getApplicationContext(),RegistroActivity.class);
+        startActivity(i);
+    }
 }
