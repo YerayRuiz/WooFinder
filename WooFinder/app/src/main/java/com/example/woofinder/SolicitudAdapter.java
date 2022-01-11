@@ -116,8 +116,8 @@ public class SolicitudAdapter extends ArrayAdapter<Solicitud> {
 
                 solicitud.deleteSolicitud();
 
-                Toast toast = Toast.makeText(getContext(), getContext().getString(R.string.solicitud_toast_aceptar_1)+
-                        user.getCorreo() + getContext().getString(R.string.solicitud_toast_aceptar_2), Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getContext(), getContext().getString(R.string.solicitud_toast_aceptar_1)+ " " +
+                        user.getCorreo() + " " + getContext().getString(R.string.solicitud_toast_aceptar_2), Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.TOP, 0, 0);
                 toast.show();
 
