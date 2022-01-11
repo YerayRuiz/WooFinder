@@ -12,7 +12,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_animal">AnimalActivity</string>
     <string name="add_usuario">Add usuario</string>
-    <string name="delete_usuario">Delete usuario</string>
+    <string name="">Delete usuario</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -20,31 +20,34 @@
 
     <!-- STRINGS PARA EDITAR USUARIO-->
     <string name="editar_usuario">Editar usuario</string>
+    <string name="correo_usuario">Correo</string>
+    <string name="nombre_usuario">Nombre</string>
+    <string name="contrasenya_usuario">Contraseña</string>
+    <string name="contrasenya_confirmar_usuario">Confirmar Contraseña</string>
+    <string name="guardar_cambios_usuario">Guardar Cambios</string>
     <string name="correo_usuario">Correo </string>
     <string name="nombre_usuario">Nombre </string>
-    <string name="contrasenya_usuario">Contraseña </string>
+    <string name="contrasenya_usuario">Contraseña</string>
     <string name="contrasenya_confirmar_usuario">Confirmar Contraseña </string>
     <string name="guardar_cambios_usuario">Guardar Cambios </string>
 
     <!-- STRINGS PARA LISTAR ANIMAL-->
-    <string name="lista_animales">Lista Animales </string>
+    <string name="lista_animales">Lista Animales</string>
 
     <!-- STRINGS PARA LISTAR ORGANIZACION-->
-    <string name="selecciona_organizacion">Selecciona la organización </string>
+    <string name="selecciona_organizacion">Selecciona la organización</string>
 
 
     <!-- STRINGS PARA NUEVO ANIMAL-->
-    <string name="descripcion_animal">Descripcion del animal </string>
-    <string name="tipo_animal">Tipo del animal </string>
-    <string name="nuevo_animal">Nuevo animal </string>
+    <string name="descripcion_animal">Descripcion del animal</string>
+    <string name="tipo_animal">Tipo del animal</string>
+    <string name="nuevo_animal">Nuevo animal</string>
 
     <!-- STRINGS PARA REGISTRO DATOS-->
-    <string name="seleccion_organizacion">Organizacion </string>
-    <string name="introduce_email">Introduce tu email para solicitar el registro.
-        Una vez que la organización lo apruebe,
-        recibirás un correo a tu email y podrás registrarte. </string>
+    <string name="seleccion_organizacion">Organizacion</string>
+    <string name="introduce_email">Introduce tu email para solicitar el registro. Una vez que la organización lo apruebe, recibirás un correo a tu email y podrás registrarte.</string>
     <string name="nombre_email">Email </string>
-    <string name="solicitar_organizacion">Solicitar </string>
+    <string name="solicitar_organizacion">Solicitar</string>
 
     <!-- STRINGS PARA INFO USUARIO-->
     <string name="organizacion_usuario">Organización </string>
@@ -52,17 +55,17 @@
     <string name="editar_perfil">Editar perfil </string>
 
     <!-- STRINGS PARA LOGIN-->
-    <string name="login">Login </string>
-    <string name="usuario_login">Usuario </string>
-    <string name="contrasenya_login">Contraseña </string>
-    <string name="entrar_login">Entrar </string>
-    <string name="registrar_login">¿No tiene cuenta?
-        Regístrese pinchando aquí </string>
+    <string name="login">Login</string>
+    <string name="usuario_login">Usuario</string>
+    <string name="contrasenya_login">Contraseña</string>
+    <string name="entrar_login">Entrar</string>
+    <string name="registrar_login">¿No tiene cuenta? Regístrese pinchando aquí</string>
+    <string name="usuario_inicio_sesion">Usuario inicia sesión con éxito</string>
 
     <!-- STRINGS PARA INICIO-->
-    <string name="no_login">Continuar sin iniciar sesión </string>
-    <string name="welcome_woofinder">Bienvenido a WooFinder! </string>
-    <string name="iniciar_sesion_inicio">Iniciar sesión </string>
+    <string name="no_login">Continuar sin iniciar sesión</string>
+    <string name="welcome_woofinder">Bienvenido a WooFinder!</string>
+    <string name="iniciar_sesion_inicio">Iniciar sesión</string>
 
     <!-- STRINGS PARA NAVBAR-->
     <string name="lista_anuncios">Lista anuncios </string>
@@ -70,5 +73,34 @@
     <string name="perfil_anuncio">Perfil </string>
     <string name="perfil_organizacion">Organizacion</string>
 
+    <!-- STRINGS PARA EDITAR ORGANIZACION FRAGMENT-->
+    <string name="title_editar_organizacion">Editar organización</string>
+    <string name="cif_organizacion">CIF</string>
+    <string name="boton_actualizar">Actualizar</string>
+    <string name="password_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="password_vacia">Contraseña vacía</string>
+    <string name="nombre_vacia">Nombre vacío</string>
+    <string name="email_no_valido">Email no válido</string>
+    <string name="cif_no_valido">CIF no válido</string>
 
+    <!-- STRINGS PARA ORGANIZACION FRAGMENT -->
+    <string name="equipo_organizacion">Equipo</string>
+    <string name="ver_solicitudes">Ver solicitudes</string>
+
+    <!-- STRINGS PARA SOLICITUDES FRAGMENT -->
+    <string name="title_solicitudes">Solicitudes</string>
+
+    <!-- STRINGS PARA ITEM SOLICITUD -->
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_eliminar">Eliminar</string>
+
+    <!-- STRINGS PARA SOLICITUD ADAPTER -->
+    <string name="solicitud_toast_aceptar_1">Solicitud aceptada con éxito. Se enviará un email a </string>
+    <string name="solicitud_toast_aceptar_2"> notificándole.</string>
+    <string name="solicitud_toast_eliminar">Solicitud eliminada con éxito</string>
+
+    <!-- STRINGS PARA LOGIN ORGANIZACION ACTIVITY -->
+    <string name="contrasenya_incorrecta">Contraseña incorrecta</string>
+    <string name="email_no_encontrado">Email no encontrado</string>
+    <string name="organizacion_inicio_sesion">Organización inicia sesión con éxito</string>
 </resources>

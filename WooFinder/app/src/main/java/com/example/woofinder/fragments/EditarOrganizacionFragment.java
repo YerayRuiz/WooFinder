@@ -82,19 +82,19 @@ public class EditarOrganizacionFragment extends Fragment {
                                     SingletonOrganizacion.getInstance().put("ORGANIZACION", org);
                                     ((OrganizacionActivity) getActivity()).loadFragment(OrganizacionFragment.newInstance());
                                 } else {
-                                    editConfirmPassword.setError("Las contraseñas no coinciden");
+                                    editConfirmPassword.setError(getString(R.string.password_no_coinciden));
                                 }
                             } else {
-                                editPassword.setError("Contraseña vacía");
+                                editPassword.setError(getString(R.string.password_vacia));
                             }
                         } else {
-                            editNombre.setError("Nombre vacío");
+                            editNombre.setError(getString(R.string.nombre_vacia));
                         }
                     } else {
-                        editCorreo.setError("Email no válido");
+                        editCorreo.setError(getString(R.string.email_no_valido));
                     }
                 } else {
-                    editCif.setError("CIF no válido");
+                    editCif.setError(getString(R.string.cif_no_valido));
                 }
             }
         });

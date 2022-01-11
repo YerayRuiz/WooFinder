@@ -80,26 +80,26 @@ public class LoginOrganizacionActivity extends AppCompatActivity {
                                         Organizacion org = document.toObject(Organizacion.class);
                                         org.setId(document.getId());
 
-                                        Toast.makeText(getBaseContext(), "Organizacion inicia sesión con éxito", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getBaseContext(), getString(R.string.organizacion_inicio_sesion), Toast.LENGTH_LONG).show();
 
                                         SingletonOrganizacion.getInstance().put("ORGANIZACION", org);
 
-                                        // Para irse a MainActivity
+                                        // Para irse a MainActivity de la Organizacion
                                         Intent i = new Intent(getApplicationContext(),OrganizacionActivity.class);
                                         startActivity(i);
                                     } else {
-                                        tPassword.setError("Contraseña incorrecta");
+                                        tPassword.setError(getString(R.string.contrasenya_incorrecta));
                                     }
                                 } else {
-                                    tEmail.setError("Email no encontrado");
+                                    tEmail.setError(getString(R.string.email_no_encontrado));
                                 }
                             } else {
-                                tEmail.setError("Email no encontrado");
+                                tEmail.setError(getString(R.string.email_no_encontrado));
                             }
                         }
                     });
         } else {    //Email introducido no valido
-            tEmail.setError("Email introducido no válido");
+            tEmail.setError(getString(R.string.email_no_valido));
         }
     }
 
