@@ -41,4 +41,24 @@
     <string name="iniciar_sesion_inicio">Sign in</string>
     <string name="lista_anuncios">Advertisements list</string>
     <string name="nuevo_anuncio">New advertisement</string>
+    <string name="perfil_anuncio">Profile</string>
+    <string name="title_editar_organizacion">Update organization</string>
+    <string name="cif_organizacion">CIF</string>
+    <string name="boton_actualizar">Update</string>
+    <string name="password_no_coinciden">The passwords don´t match</string>
+    <string name="usuario_inicio_sesion">User sign in with success</string>
+    <string name="password_vacia">Empty password</string>
+    <string name="nombre_vacia">Empty name</string>
+    <string name="email_no_valido">Email not valid</string>
+    <string name="cif_no_valido">CIF not valid</string>
+    <string name="equipo_organizacion">Team</string>
+    <string name="ver_solicitudes">Show requests</string>
+    <string name="title_solicitudes">Requests</string>
+    <string name="btn_aceptar">Accept</string>
+    <string name="btn_eliminar">Delete</string>
+    <string name="solicitud_toast_aceptar_1">Request accepted successfully. An email will send to</string>
+    <string name="solicitud_toast_aceptar_2">notifying him</string>
+    <string name="solicitud_toast_eliminar">Request deleted successfully</string>
+    <string name="contrasenya_incorrecta">Incorrect password</string>
+    <string name="email_no_encontrado">Email not found</string>
 </resources>
