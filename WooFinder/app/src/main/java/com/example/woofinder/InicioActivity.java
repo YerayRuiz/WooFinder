@@ -72,7 +72,8 @@ public class InicioActivity extends AppCompatActivity {
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                finish();
+                finishAffinity();
+                System.exit(0);
             }
         };
 
