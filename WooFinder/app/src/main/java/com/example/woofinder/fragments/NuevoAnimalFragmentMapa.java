@@ -134,7 +134,7 @@ public class NuevoAnimalFragmentMapa extends Fragment {
                         else{
                             camPos = new CameraPosition.Builder()
                                     .zoom(18)
-                                    .bearing(location.getBearing())
+                                    .bearing(0)
                                     .tilt(70)
                                     .build();
                         }

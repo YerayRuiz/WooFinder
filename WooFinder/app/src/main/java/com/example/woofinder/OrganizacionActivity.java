@@ -1,5 +1,6 @@
 package com.example.woofinder;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -47,6 +48,15 @@ public class OrganizacionActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                loadFragment(organizacionFragment);
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     public void loadFragment(Fragment fragment) {

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.woofinder.InicioActivity;
 import com.example.woofinder.LoginActivity;
 import com.example.woofinder.MainActivity;
 import com.example.woofinder.R;
@@ -28,6 +29,7 @@ public class UsuarioFragment extends Fragment {
     private Usuario user;
     private Button btnEditarPerfil;
     private Button btnDeletePerfil;
+    private Button btnCerrarSesion;
 
     public UsuarioFragment() {
         // Required empty public constructor
@@ -57,6 +59,8 @@ public class UsuarioFragment extends Fragment {
         viewCorreo.setText(user.getCorreo());
         viewNombre.setText(user.getNombre());
         viewOrganizacion.setText(user.getOrganizacion().getNombre());
+        btnCerrarSesion = myInflatedView.findViewById(R.id.btnCerrarSesion);
+
         btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +94,14 @@ public class UsuarioFragment extends Fragment {
                 AlertDialog alert = builder.create();
                 alert.setTitle(getString(R.string.borrar_perfil));
                 alert.show();
+            }
+        });
+
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), InicioActivity.class);
+                startActivity(i);
             }
         });
 

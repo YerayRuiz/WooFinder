@@ -77,4 +77,5 @@
     <string name="borrar_perfil">Delete Profile</string>
     <string name="solicitud_toast_credenciales_1">Your request was succesfully accepted on </string>
     <string name="solicitud_toast_credenciales_2">. Please, login with your credentials and complete your data:</string>
+    <string name="cerrar_sesion">Logout</string>
 </resources>

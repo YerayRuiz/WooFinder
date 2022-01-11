@@ -1,14 +1,19 @@
 package com.example.woofinder;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.woofinder.clases.Organizacion;
 import com.example.woofinder.clases.SingletonOrganizacion;
+
+import java.util.Locale;
 
 public class InicioActivity extends AppCompatActivity {
     Button btnPrueba;
@@ -62,5 +67,15 @@ public class InicioActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        // This callback will only be called when MyFragment is at least Started.
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+            }
+        };
+
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }

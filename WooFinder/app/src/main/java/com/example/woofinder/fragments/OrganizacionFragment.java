@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.woofinder.InicioActivity;
 import com.example.woofinder.InitialActivity;
 import com.example.woofinder.LoginActivity;
 import com.example.woofinder.OrganizacionActivity;
@@ -46,6 +47,7 @@ public class OrganizacionFragment extends Fragment {
     private CollectionReference organizacionCollection;
     private Button btnEditarPerfil;
     private Button btnVerSolicitudes;
+    private Button btnCerrarSesion;
 
     public OrganizacionFragment() {
     }
@@ -123,6 +125,15 @@ public class OrganizacionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((OrganizacionActivity) getActivity()).loadFragment(EditarOrganizacionFragment.newInstance());
+            }
+        });
+
+        this.btnCerrarSesion = v.findViewById(R.id.btnCerrarSesionOrg);
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), InicioActivity.class);
+                startActivity(i);
             }
         });
 
